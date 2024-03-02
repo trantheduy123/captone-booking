@@ -1,0 +1,67 @@
+.profile-doctor-container {
+    .intro-doctor {
+      display: flex;
+  
+      .content-left {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: center center no-repeat;
+        width: 200px;
+        background-repeat: no-repeat;
+        background-size: contain, cover;
+        overflow: hidden;
+  
+        img {
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
+      }
+  
+      .content-right {
+        width: calc(100% - 220px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 20px;
+        line-height: normal;
+  
+        .up {
+          font-size: medium;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+  
+        .down {
+          font-size: normal;
+          color: #666;
+        }
+      }
+    }
+  
+    .profile-doctor {
+        display: flex;
+        justify-content: center; /* Align items at the start and end of the container */
+        align-items: end;
+    
+        .View-detail-doctor {
+          a {
+            text-decoration: none;
+            color: blue;
+    
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+    
+        .price {
+          font-size: 16px;
+    
+          .currency {
+            margin-left: 5px;
+          }
+        }
+      }
+    }

@@ -1,0 +1,271 @@
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: #ccc;
+    background-size: cover;
+  
+    &__options-container {
+      position: relative;
+      width: 80%;
+    }
+  
+    &__options-text {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      background-color: rgba(#222222, 0.85);
+      border-radius: 3px;
+    }
+  }
+
+  
+  
+  .user_options-registered,
+  .user_options-unregistered {
+    width: 50%;
+    padding: 75px 45px;
+    color: #fff;
+    font-weight: 300;
+  
+    &-title {
+      margin-bottom: 15px;
+      font-size: 1.66rem;
+      line-height: 1em;
+    }
+  
+    &-text {
+      font-size: 0.83rem;
+      line-height: 1.4em;
+    }
+  
+    &-login,
+    &-signup {
+      margin-top: 30px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 10px 30px;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1em;
+      letter-spacing: 0.2rem;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  
+      &:hover {
+        color: rgba(#222222, 0.85);
+        background-color: #ccc;
+      }
+    }
+  }
+  
+  .user_options-forms {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    width: calc(50% - 30px);
+    min-height: 580px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 2px 0 15px rgba(#000, 0.25);
+    overflow: hidden;
+    transform: translate3d(100%, -50%, 0);
+    transition: transform 0.4s ease-in-out;
+  
+    .user_forms-login {
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+      text-align: center;
+    }
+  
+    .forms {
+      &__title {
+        margin-bottom: 45px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1em;
+        text-transform: uppercase;
+        color: #3498db;
+        letter-spacing: 0.1rem;
+        text-align: center;
+      }
+  
+      &__field {
+        &:not(:last-of-type) {
+          margin-bottom: 20px;
+        }
+      }
+      
+  
+      &__field-input {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        padding: 6px 20px 6px 6px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        color: darken(#ccc, 30%);
+        letter-spacing: 0.1rem;
+        transition: border-color 0.2s ease-in-out;
+  
+        &:focus {
+          border-color: darken(#ccc, 30%);
+        }
+      }
+  
+      &__buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 35px;
+  
+        &-forgot {
+          font-family: 'Montserrat', sans-serif;
+          letter-spacing: 0.1rem;
+          color: #ccc;
+          text-decoration: underline;
+          transition: color 0.2s ease-in-out;
+  
+          &:hover {
+            color: darken(#ccc, 10%);
+          }
+        }
+        .forms_field {
+          position: relative;
+        
+          select.forms_field-input {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 6px 20px 6px 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            color: darken(#ccc, 30%);
+            letter-spacing: 0.1rem;
+            transition: border-color 0.2s ease-in-out;
+        
+            &:focus {
+              border-color: darken(#ccc, 30%);
+            }
+          }
+        }
+  
+        &-action {
+          background-color: #3498db;
+          border-radius: 3px;
+          padding: 10px 35px;
+          font-size: 1rem;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 300;
+          color: #fff;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          transition: background-color 0.2s ease-in-out;
+  
+          &:hover {
+            background-color: darken(#3498db, 10%);
+          }
+        }
+      }
+    }
+  
+    .facebook-link {
+      display: inline-block;
+      font-size: 44px;
+      color: #3b5998;
+      text-decoration: none;
+      margin-top: 10px;
+  
+      &:hover {
+        color: #304c89;
+      }
+    }
+  
+    .user_forms-signup,
+    .user_forms-login {
+      position: absolute;
+      top: 50px;
+      left: 40px;
+      width: calc(100% - 80px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.5s ease-in-out;
+    }
+  
+    .user_forms-signup {
+      transform: translate3d(120px, 0, 0);
+  
+      .forms_buttons {
+        justify-content: flex-end;
+      }
+    }
+  
+    .user_forms-login {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  .user_options-forms {
+    &.bounceLeft {
+      animation: bounceLeft 1s forwards;
+  
+      .user_forms-signup {
+        animation: showSignUp 1s forwards;
+      }
+  
+      .user_forms-login {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(-120px, 0, 0);
+      }
+    }
+  
+    &.bounceRight {
+      animation: bounceRight 1s forwards;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .user_options-container{
+      .user_options-text{
+          .user_registered-title, .user_unregistered-title{
+            font-size: 1.5rem;
+          }
+          .user_registered-login{
+            font-size: 0.9rem;
+          }
+        .user_options-registered {
+          padding: 70px 20px;
+        }
+      }
+      .user_options-forms {
+        min-height: 610px;
+        width: calc(80% - 38px);
+        left: -90px ;
+        .forms_buttons {
+          flex-direction: column;
+        }
+    
+        .user_forms-login {
+          .forms_buttons-action {
+            margin-top: 30px;
+          }
+        }
+    
+        .user_forms-signup,
+        .user_forms-login {
+          top: 40px;
+        }
+      }
+    }
+  
+  
+    .user_registered-text {
+      display: none; // Hide instead of setting visibility to hidden
+    }
+  
+    
+  }
+  

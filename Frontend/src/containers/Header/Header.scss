@@ -1,0 +1,106 @@
+$colormain: #3498db; // Replace with your actual color variable
+$common-text-color: #fff; // Replace with your actual text color variable
+$base-size: 16px; // Replace with your base font size
+
+.header-container {
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; // Center items vertically
+  background-color: $colormain;
+  color: $common-text-color;
+  height: 60px; // Increase the height for better visibility
+  padding: 0 20px; // Add horizontal padding for better spacing
+  position: relative;
+  width: -webkit-fill-available;
+  .navigator-menu .menu-group:hover .menu-list {
+     
+    display: inline-grid;
+}
+ 
+
+  .btn-logout {
+    color: $common-text-color;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s; // Smooth transition
+
+    &:hover {
+      background-color: darken($colormain, 10);
+      border-color: darken($colormain, 20);
+    }
+
+    i {
+      font-size: $base-size + 1px;
+    }
+  }
+
+  .languages {
+    display: flex;
+    align-items: center;
+
+    .welcome {
+      margin-right: 10px;
+    }
+
+    .languages-en,
+    .languages-vi {
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s, color 0.3s; // Smooth transition
+        color: orange;
+        font-weight: 400px;
+        font-size: 20px;
+      &.active {
+        opacity: 1;
+        color: $colormain;
+      }
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    display: inline-block;
+    .navigator-menu .menu-group .menu-group-name {
+        line-height: 20px;
+        font-size: smaller;
+        border-right: 1px solid #ccc;
+    }
+    .navigator-menu .menu-group:hover{
+      cursor: pointer;
+    background-color: #0062a1;
+    z-index: 50;
+    }
+    .navigator-menu .menu-group:hover .menu-list {
+     
+      display: inline-grid;
+  }
+   
+    .btn-logout {
+      margin-top: 10px;
+      width: 100%; // Full width button
+    }
+
+    .languages {
+      margin-top: 10px;
+
+      .welcome,
+      .languages-en,
+      .languages-vi {
+        margin: 0;
+        width: 100%; // Full width for each language
+        text-align: center;
+        font-size: medium;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,61 @@
+@media only screen and (max-width: 600px) {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow-x: auto;
+      display: flex;
+      margin-bottom: 1em;
+    }
+
+    th, td {
+      white-space: nowrap;
+      padding: 0.5em;
+      box-sizing: border-box;
+    }
+
+    thead, tbody, tr, td, th {
+      display: block;
+    }
+
+    tr {
+      margin-bottom: 0.625em;
+      border: 1px solid #ddd;
+      background-color: #f5f5f5;
+      border-radius: 0.5em;
+    }
+
+    td {
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      margin-right: 0.5em;
+    }
+
+    td:last-child {
+      border-bottom: none;
+    }
+
+    .btn-delete, .btn-edit {
+      margin-right: 0.25em;
+      padding: 0.25em 0.5em;
+      font-size: 0.8em;
+      border: none;
+      cursor: pointer;
+      border-radius: 0.3em;
+    }
+
+    .btn-delete {
+      background-color: #dc3545;
+      color: #fff;
+    }
+
+    .btn-edit {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }

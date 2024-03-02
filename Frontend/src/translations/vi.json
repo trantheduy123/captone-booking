@@ -1,0 +1,146 @@
+{
+
+    "homeheader":{
+        "DentalSpecialist": "Chuyên Khoa Răng",
+        "SearchDoctor": "Tìm dịch vụ theo chuyên khoa",
+        "health-facility": "Cơ sở y tế",
+        "select-room": "Chọn bệnh viện phòng khám",
+        "doctor": "Bác sĩ",
+        "select-doctor":"Chọn bác sĩ giỏi",
+        "fee": "Gói khám",
+        "check-health": "Khám sức khỏe tổng quát",
+        "support": "Hỗ trợ",
+        "welcome":"Xin chào, "
+    },
+    "banner": {
+        "title1": "ĐẶT LỊCH KHÁM NHA KHOA",
+        "title2": "CHĂM SÓC SỨC KHỎE RĂNG MIỆNG TOÀN DIỆN",
+        "title3": "Tìm bác sĩ khám bệnh",
+        "child1":"Khám chuyên khoa",
+        "child2":"Khám từ xa",
+        "child3":"Bác sĩ đồng hành",
+        "child4":"Bài kiểm tra sức khỏe răng miệng",
+        "child5":"Bảng giá dịch vụ"
+
+    },
+    
+
+    "menu": {
+        "system": {
+            "header": "Hệ thống",
+            "system-administrator": {
+                "header": "Quản trị hệ thống",
+                "user-manage": "Quản lý người sử dụng",
+                "user-redux": "Quản lý user redux",
+                "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản"
+            },
+            "system-parameter": {
+                "header": "Tham số hệ thống"
+            }
+        },
+        "admin": {
+            "manage-user": "Người dùng",
+            "manage-doctor": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD redux",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lý phòng khám",
+            "specialist": "Chuyên khoa",
+            "manage-specialist": "Quản lý chuyên khoa",
+            "handbook": "Cẩm nang",
+            "manage-handbook": "Quản lý cẩm nang"
+            
+        },
+        "doctor":{
+            "manage-schedule":"Quản lí kế hoạch bác sĩ"
+        }
+    },
+    "manage-user":{
+       "add": "Thêm mới người dùng" ,
+       "email": "Email",
+       "password": "Mật khẩu",
+       "first-name": "Tên",
+       "last-name": "Họ",
+       "phone-number": "Số Điện Thoại",
+       "gender": "Giới tính",
+       "address": "Địa chỉ",
+       "save": "Lưu user",
+       "position": "Chức danh",
+       "role": "Vai trò",
+       "image": " Hình ảnh",
+       "edit": "Lưu thay đổi"
+       
+    },
+    "homepage": {
+        "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
+        "more-info": "Xem thêm",
+        "specialty-popular": "Chuyên khoa phổ biến"
+    },
+    "manage-schedule": {
+        "title": "Quản lí khám bệnh bác sĩ",
+        "choose-doctor": "Chọn Bác Sĩ",
+        "choose-date": "Chọn Ngày",
+        "save": " Lưu Thông Tin"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Lịch Khám",
+            "no-schedule": "Bác sĩ không có lịch hẹn thời gian này vui lòng chọn thời gian khác !",
+            "choose": "chọn ",
+            "book-free": " và đặt (miễn phí)",
+            "search-doctor": "Tìm bác sĩ khám theo chuyên khoa"
+        },
+        "extra-infor-doctor":{
+            "text-address":"Địa chỉ khám",
+            "price": "GIÁ KHÁM:",
+            "detail": "Xem chi tiết",
+            "payment": "Người khám bệnh có thể thanh toán chi phí bằng hình thức:",
+            "hide-price": "Ẩn bảng giá"
+        },
+        "booking-modal":{
+            "title": "Thông tin đặt lịch khám bệnh",
+            "fullname":"Họ và tên",
+            "phonenumber": "Số điện thoại",
+            "address": "Địa chỉ liên hệ",
+            "reason": "Lí do khám",
+            "birthday":"Ngày sinh",
+            "gender": "Giới tính",
+            "btnConfirm": "Xác nhận",
+            "btnCancle":    "Hủy",
+            "price-booking":"Miễn phí đặt lịch"
+
+        }
+
+
+    },
+    "footer":{
+        "title1":"Chúng tôi là một phòng khám nha khoa hàng đầu, cam kết cung cấp dịch vụ chăm sóc răng miệng chất lượng cao và đáng tin cậy. Với đội ngũ bác sĩ nha khoa giàu kinh nghiệm và thân thiện, chúng tôi đặt mục tiêu đem lại nụ cười tươi sáng và sức khỏe răng miệng tốt cho mỗi bệnh nhân.",
+        "title2":"Chúng tôi tự hào về việc áp dụng công nghệ tiên tiến nhất và phương pháp điều trị hiện đại để đảm bảo mọi người đều có trải nghiệm nha khoa thoải mái và hiệu quả. Hãy đến với chúng tôi để trải nghiệm dịch vụ tận tâm và chuyên nghiệp nhất trong việc duy trì và cải thiện sức khỏe răng miệng của bạn.",
+        "contact":"Liên hệ ngay",
+        "about":"Về chúng tôi",
+        "info":"Thông tin"
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Tạo thêm thông tin Bác sĩ",
+            "select-doctor": "Chọn Bác sĩ",
+            "intro": "Thông tin giới thiệu ",
+            "add": "Tạo thông tin",
+            "save": "Lưu thông tin",
+            "price": "Giá khám bệnh",
+            "payment": "Phương thức thanh toán",
+            "province": "Tỉnh thành",
+            "nameClinic": "Tên phòng khám",
+            "addressClinic": "Địa chỉ phòng khám",
+            "note": "Ghi chú",
+            "specialty": "Chọn chuyên khoa",
+            "select-clinic": "Chọn phòng khám"
+           
+        }
+    }
+
+
+
+    
+}
