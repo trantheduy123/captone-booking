@@ -20,6 +20,7 @@ const appReducer = (state = initialState, action) => {
         userInfo: null,
       };
     case actionTypes.PROCESS_LOGOUT:
+      window.location.href = "/login";
       return {
         ...state,
         isLoggedIn: false,

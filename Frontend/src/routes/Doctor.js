@@ -5,17 +5,20 @@ import UserManage from "../containers/System/UserManage";
 
 import HomeHeader from "../../src/containers/HomePage/HomeHeader";
 import ManageSchedule from "../containers/System/Doctor/ManageSchedule";
-
+import Header from "../containers/Header/Header";
 class Doctor extends Component {
   render() {
     const { isLoggedIn } = this.props;
     return (
       <React.Fragment>
-        {isLoggedIn && <HomeHeader />}
+        {isLoggedIn && <Header />}
         <div className="system-container">
           <div className="system-list">
             <Switch>
-              <Route path="/home" component={ManageSchedule} />
+              <Route
+                path="/doctor/manage-schedule"
+                component={ManageSchedule}
+              />
             </Switch>
           </div>
         </div>

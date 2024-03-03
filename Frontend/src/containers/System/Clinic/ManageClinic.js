@@ -7,7 +7,7 @@ import { FormattedMessage } from "react-intl";
 import { LANGUAGES, CRUD_ACTION, CommonUtils } from "../../../utils";
 import Lightbox from "react-image-lightbox";
 import { toast } from "react-toastify";
-import { createNewSpecialty } from "../../../services/userService";
+import { createNewClinic } from "../../../services/userService";
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -16,10 +16,10 @@ class ManageClinic extends Component {
     super(props);
     this.state = {
       name: "",
+      /* address: "", */
       imageBase64: "",
       descriptionHTML: "",
       descriptionMarkdown: "",
-      avatar: "",
     };
   }
 
@@ -63,20 +63,19 @@ class ManageClinic extends Component {
   async componentDidUpdate(prevProps, prevState, snapshot) {}
 
   handleSaveClinic = async () => {
-    /*  let res = await createNewSpecialty(this.state);
+    let res = await createNewClinic(this.state);
     if (res && res.errCode === 0) {
-      toast.success("add new specialty succeed");
+      toast.success("add new Clinic succeed");
       this.setState({
         name: "",
+        address: "",
         imageBase64: "",
         descriptionHTML: "",
         descriptionMarkdown: "",
       });
     } else {
-      toast.error("add new specialty error");
+      toast.error("add new Clinic error");
     }
-
-    console.log("duy check state", res); */
   };
 
   render() {
@@ -93,6 +92,15 @@ class ManageClinic extends Component {
               type="text"
               value={this.state.name}
               onChange={(event) => this.handleOnchangeInput(event, "name")}
+            />
+          </div>
+          <div className="col-md-6 form-group">
+            <label>dia chi</label>
+            <input
+              className="form-control"
+              type="text"
+              value={this.state.address}
+              onChange={(event) => this.handleOnchangeInput(event, "address")}
             />
           </div>
           <div className="col-md-6 form-group">

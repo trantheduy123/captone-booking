@@ -3,10 +3,13 @@ import { FormattedMessage } from "react-intl";
 import Select from "react-select";
 import { connect } from "react-redux";
 import "./HomeHeader.scss";
-import { LANGUAGES } from "../../utils";
+import { LANGUAGES, USER_ROLE } from "../../utils";
 import { changeLanguegeApp } from "../../store/actions";
 import { withRouter } from "react-router";
 import * as actions from "../../store/actions";
+import { adminMenu, doctorMenu } from "../Header/menuApp";
+import _ from "lodash";
+import { processLogout } from "../../store/actions";
 
 class HomeHeader extends Component {
   constructor(props) {
@@ -20,6 +23,33 @@ class HomeHeader extends Component {
 
   componentDidMount() {
     this.props.fetchAllDoctor();
+    const { isLoggedIn, userInfo } = this.props;
+
+    // Check if the user is logged in before attempting logout
+    if (!isLoggedIn) {
+      this.setState({ redirectTo: "/login" });
+      return; // Exit the method early if the user is not logged in
+    }
+
+    let menu = [];
+    if (userInfo && !_.isEmpty(userInfo)) {
+      let role = userInfo.roleId;
+      if (role === USER_ROLE.ADMIN) {
+        menu = adminMenu;
+      }
+      if (role === USER_ROLE.DOCTOR) {
+        menu = doctorMenu;
+      }
+    }
+
+    // Clear session and local storage
+    /*  processLogout();
+    localStorage.clear(); */
+
+    this.setState({
+      redirectTo: "/home",
+      menuApp: menu,
+    });
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -73,7 +103,7 @@ class HomeHeader extends Component {
 
   render() {
     let language = this.props.language;
-
+    const { processLogout, userInfo } = this.props;
     return (
       <React.Fragment>
         <div className="home-header-container">
@@ -125,8 +155,15 @@ class HomeHeader extends Component {
             </div>
             <div className="right-content">
               <div className="support">
-                <FormattedMessage id="homeheader.support" />
-                <i className="fas fa-question-circle"></i>
+                <FormattedMessage id="homeheader.welcome" />{" "}
+                {userInfo && userInfo.firstName ? userInfo.firstName : ""} !{" "}
+                <div
+                  className="btn btn-logout support "
+                  onClick={processLogout}
+                  title="Log out"
+                >
+                  <i className="fas fa-sign-out-alt"></i>
+                </div>
               </div>
               <div
                 className={
@@ -238,6 +275,7 @@ const mapStateToProps = (state) => {
     isLoggedIn: state.user.isLoggedIn,
     language: state.app.language,
     allDoctors: state.admin.allDoctors,
+    userInfo: state.user.userInfo,
   };
 };
 
@@ -245,6 +283,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchAllDoctor: () => dispatch(actions.fetchAllDoctor()),
     changeLanguegeAppRedux: (language) => dispatch(changeLanguegeApp(language)),
+    processLogout: () => dispatch(processLogout()),
   };
 };
 

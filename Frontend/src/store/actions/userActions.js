@@ -16,3 +16,11 @@ export const userLoginFail = () => ({
 export const processLogout = () => ({
   type: actionTypes.PROCESS_LOGOUT,
 });
+
+export const CLEAR_SESSION = "CLEAR_SESSION";
+
+export const clearSession = () => {
+  return {
+    type: CLEAR_SESSION,
+  };
+};
