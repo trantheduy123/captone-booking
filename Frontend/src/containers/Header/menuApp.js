@@ -80,6 +80,11 @@ export const doctorMenu = [
         name: "menu.doctor.manage-schedule",
         link: "/doctor/manage-schedule",
       },
+      //Quản lí benh nhan
+      {
+        name: "menu.doctor.manage-patient",
+        link: "/doctor/manage-patient",
+      },
     ],
   },
 ];
