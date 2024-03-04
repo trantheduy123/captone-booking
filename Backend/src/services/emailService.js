@@ -66,6 +66,82 @@ let getBodyHTMLEmail = (dataSend) => {
   return result;
 };
 
+let sendAttachment = async (dataSend) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+          // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+          user: process.env.EMAIL_APP,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+      });
+
+      const info = await transporter.sendMail({
+        from: '"Booking Clinic 👻" <trantheduy@gmail.com>', // sender address
+        to: dataSend.email, // list of receivers
+        subject: "Kết quả đặt lịch khám bệnh", // Subject line
+        html: getBodyHTMLRemedy(dataSend),
+        attachments: [
+          {
+            filename: "anh.png",
+            content: dataSend.imgBase64.split(",")[1],
+
+            encoding: "base64",
+          },
+        ],
+      });
+      console.log("check infor send email");
+      console.log(info);
+      resolve();
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+let getBodyHTMLRemedy = (dataSend) => {
+  let result = "";
+  if (dataSend.language === "vi") {
+    result = `
+ 
+   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f7f7f7;">
+  <h3 style="color: #007bff; text-align: center; margin-bottom: 20px;">Xin chào ${dataSend.patientName}</h3>
+  <p style="color: #555; text-align: justify;">Bạn nhận được Email này vì đã đặt lịch khám bệnh Online trên Booking Clinic.</p>
+  <div style="background-color: #fff; padding: 20px; border-radius: 5px; margin-top: 20px;">
+
+    <p style="color: #333; margin: 0;"> Thông tin giá khám/ đơn thuốc được gửi trong file đính kèm </p>
+  </div>
+  <p style="color: #555; text-align: justify; margin-top: 20px;">Nếu các thông tin trên là đúng sự thật, vui lòng click vào đường link bên dưới để xác nhận và hoàn tất lịch khám bệnh.</p>
+ 
+  <p style="color: #555; text-align: center; margin-top: 20px;">Xin chân thành cảm ơn !!!</p>
+</div>
+`;
+  }
+  if (dataSend.language === "en") {
+    result = `
+ 
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f7f7f7;">
+  <h3 style="color: #007bff; text-align: center; margin-bottom: 20px;">Hello ${dataSend.patientName}</h3>
+  <p style="color: #555; text-align: justify;">You are receiving this email because you have booked an online medical appointment on Booking Clinic.</p>
+  <div style="background-color: #fff; padding: 20px; border-radius: 5px; margin-top: 20px;">
+    <p style="color: #333; margin: 0;">The information about the examination fee/prescription is sent in the attached file.</p>
+  </div>
+ 
+ 
+  <p style="color: #555; text-align: center; margin-top: 20px;">Thank you very much !!!</p>
+</div>
+  
+`;
+  }
+
+  return result;
+};
+
 module.exports = {
   sendSimpleEmail: sendSimpleEmail,
+  sendAttachment: sendAttachment,
 };

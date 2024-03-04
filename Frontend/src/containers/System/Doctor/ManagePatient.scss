@@ -1,40 +1,90 @@
-.manage-patient-container{
-    .m-p-title{
+// Base styles
+.manage-patient-container {
+  .m-p-title {
     font-size: x-large;
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .manage-patient-body {
+    padding: 0 20px;
+
+    .table-manage-patient {
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 3px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .mp-btn-confirm {
+        margin-right: 10px;
+        background: #3498db; /* Blue */
+        color: white;
+      }
+
+      .mp-btn-remedy {
+        background: #007bff; /* Light Blue */
+        color: #ffffff;
+      }
+
+      button:hover {
+        background-color: darken(#3498db, 10%); /* Darken blue on hover */
+      }
     }
-    .manage-patient-body{
-        padding: 0 20px;
-        .table-manage-patient{
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-              }
-              
-              tr:nth-child(even) {
-                background-color: #dddddd;
-              }
-              button{
-                border: none;
-                outline: none;
-                cursor: pointer;
-              }
-              .mp-btn-confirm{
-                margin-right: 10px;
-                height: 30px;
-                border-radius: 3px;
-                background: yellow;
-              }
-              .mp-btn-remedy{
-      
-                height: 30px;
-                border-radius: 3px;
-                background: blue;
-              }
-        }
+  }
+}
+
+// Loading overlay styles
+._loading_overlay_wrapper {
+  position: unset;
+
+  ._loading_overlay_overlay {
+    z-index: 10000000;
+  }
+
+  .css-79elbk {
+    position: unset;
+  }
+}
+
+// Responsive styles
+@media screen and (max-width: 768px) {
+  .manage-patient-container,
+  .manage-patient-body,
+  .table-manage-patient,
+  button {
+    display: block;
+  }
+
+  .manage-patient-body {
+    padding: 0 10px;
+
+    .table-manage-patient {
+      td, th {
+        padding: 6px;
+      }
+
+      button {
+        height: 26px;
+        font-size: 14px;
+      }
     }
+  }
 }
