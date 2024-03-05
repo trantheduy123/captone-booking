@@ -101,6 +101,27 @@ const createNewClinic = (data) => {
   return axios.post("/api/create-new-clinic", data);
 };
 
+const editClinic = (inputData) => {
+  return axios.put("/api/edit-clinic", inputData);
+};
+
+const deleteClinic = (clinic) => {
+  return axios.delete("/api/delete-clinic", {
+    data: {
+      id: clinic,
+    },
+  });
+};
+
+/* const deleteUserService = (userId) => {
+  return axios.delete("/api/delete-user", {
+    data: {
+      id: userId,
+    },
+  });
+};
+ */
+
 const getAllClinic = () => {
   return axios.get(`/api/get-clinic`);
 };
@@ -147,4 +168,6 @@ export {
   getAllDetailClinicById,
   getAllPatientForDoctor,
   postSendRemedy,
+  editClinic,
+  deleteClinic,
 };

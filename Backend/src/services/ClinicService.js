@@ -12,7 +12,7 @@ let createClinic = (data) => {
       ) {
         resolve({
           errCode: 1,
-          errMessage: "Missing parameter",
+          errMessage: "Missing parameter ",
         });
       } else {
         await db.Clinic.create({
@@ -96,8 +96,81 @@ let getDetailClinicById = (inputId, location) => {
   });
 };
 
+let editClinic = (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      // Check if 'id' is missing in the data
+      if (!data.id) {
+        resolve({
+          errCode: 1,
+          errMessage: "Missing required parameter: id",
+        });
+        return; // Return to avoid proceeding further
+      }
+
+      // Find the user by 'id'
+      let clinic = await db.Clinic.findOne({
+        where: { id: data.id },
+        raw: false,
+      });
+
+      // Check if the user is found
+      if (clinic) {
+        // Update user data
+        clinic.name = data.name;
+        clinic.address = data.address;
+        clinic.descriptionMarkdown = data.descriptionMarkdown;
+        clinic.descriptionHTML = data.descriptionHTML;
+        clinic.image = data.image;
+
+        // Save the updated user
+        await clinic.save();
+
+        resolve({
+          errCode: 0,
+          errMessage: "Update the user succeeds!",
+        });
+      } else {
+        resolve({
+          errCode: 1,
+          errMessage: "User not found",
+        });
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+let deleteClinic = async (clinic) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let foundUser = await db.Clinic.findOne({
+        where: { id: clinic.id },
+      });
+      if (!foundUser) {
+        resolve({
+          errCode: 2,
+          errMessage: "The user doesn't exist",
+        });
+      }
+      await db.Clinic.destroy({
+        where: { id: clinic.id },
+      });
+      resolve({
+        errCode: 0,
+        errMessage: "The user is deleted",
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 module.exports = {
   createClinic: createClinic,
   getAllClinic: getAllClinic,
   getDetailClinicById: getDetailClinicById,
+  editClinic: editClinic,
+  deleteClinic: deleteClinic,
 };

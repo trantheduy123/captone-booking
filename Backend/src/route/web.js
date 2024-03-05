@@ -70,16 +70,16 @@ let initWebRoutes = (app) => {
     patientController.postVerifyBookAppoiment
   );
 
-  router.post("/api/create-new-specialty", specialtyController.createSpecialty);
-
   router.post("/api/create-new-clinic", ClinicController.createClinic);
-
+  router.put("/api/edit-clinic", ClinicController.editClinic);
+  router.delete("/api/delete-clinic", ClinicController.deleteClinic);
   router.get("/api/get-clinic", ClinicController.getAllClinic);
   router.get(
     "/api/get-detail-clinic-by-id",
     ClinicController.getDetailClinicById
   );
 
+  router.post("/api/create-new-specialty", specialtyController.createSpecialty);
   router.get("/api/get-specialty", specialtyController.getAllSpecialty);
   router.get(
     "/api/get-detail-specialty-by-id",

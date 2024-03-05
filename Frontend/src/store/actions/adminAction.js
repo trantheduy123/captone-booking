@@ -259,6 +259,30 @@ export const fetchAllDoctor = () => {
   };
 };
 
+export const fetchAllClinics = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllClinic();
+
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALL_CLINIC_SUCCESS,
+          dataDr: res.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALL_CLINIC_FAILED,
+        });
+      }
+    } catch (e) {
+      console.log("Error:", e);
+      dispatch({
+        type: actionTypes.FETCH_ALL_CLINIC_FAILED,
+      });
+    }
+  };
+};
+
 export const saveDetailDoctorAct = (data) => {
   return async (dispatch, getState) => {
     try {
@@ -268,7 +292,7 @@ export const saveDetailDoctorAct = (data) => {
         toast.success("Save Infor Detail Doctor succeed");
         dispatch({
           type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
-          dataDr: res.data,
+          dataClinics: res.data,
         });
       } else {
         console.log("err res", res);
