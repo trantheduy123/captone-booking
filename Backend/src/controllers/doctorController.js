@@ -138,6 +138,19 @@ let sendRemedy = async (req, res) => {
   }
 };
 
+let sendEmail = async (req, res) => {
+  try {
+    let infor = await doctorService.sendEmail(req.body);
+    return res.status(200).json(infor);
+  } catch (e) {
+    console.log(e);
+    return res.status(200).json({
+      errCode: -1,
+      message: "Error from server",
+    });
+  }
+};
+
 module.exports = {
   getTopDoctorHome: getTopDoctorHome,
   getAllDoctors: getAllDoctors,
@@ -149,4 +162,5 @@ module.exports = {
   getProfileDoctorById: getProfileDoctorById,
   getListPatientForDoctor: getListPatientForDoctor,
   sendRemedy: sendRemedy,
+  sendEmail: sendEmail,
 };

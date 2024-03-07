@@ -121,11 +121,11 @@
 
             .title-section {
                 font-size: 2rem;
-                font-weight: 600;
+                font-weight: 700;
                 color: #333;
                 @media (min-width: 768px) {
                     font-size: 1.5rem;
-                    
+                font-weight: 700;
                 
                     }
                 
@@ -203,7 +203,7 @@
         padding: 5px;
 
         .customize-boder{
-            border: 1px solid #3498db;
+            border: 3px solid #3498db;
             padding: 20px ;
             border-radius: 15px;
         }

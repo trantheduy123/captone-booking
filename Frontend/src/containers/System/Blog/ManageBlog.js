@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./ManageClinic.scss";
+import "./ManageBlog.scss";
 import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import { FormattedMessage } from "react-intl";
@@ -8,11 +8,11 @@ import { LANGUAGES, CRUD_ACTION, CommonUtils } from "../../../utils";
 import Lightbox from "react-image-lightbox";
 import { toast } from "react-toastify";
 import {
-  createNewClinic,
-  deleteClinic,
-  editClinic,
-  getAllClinic,
-  getAllDetailClinicById,
+  createNewBlog,
+  editBlog,
+  deleteBlog,
+  getAllBlog,
+  getAllDetailBlogById,
   getDetailInforDoctor,
 } from "../../../services/userService";
 import Select from "react-select";
@@ -21,58 +21,35 @@ import _ from "lodash";
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
-class ManageClinic extends Component {
+class ManageBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      address: "",
       image: "",
       imageBase64: "",
       descriptionHTML: "",
       descriptionMarkdown: "",
-      listClinic: [],
-      selectClinic: "",
-      clinic: "",
+      listBlog: [],
+      selectBlog: "",
+      blog: "",
       id: "",
     };
   }
 
   async componentDidMount() {
     this.props.getRequiredDoctorInfor();
-    await this.getAllClinic();
-    let clinic = this.props.item;
-    if (clinic && !_.isEmpty(clinic)) {
+    let blog = this.props.item;
+    if (blog && !_.isEmpty(blog)) {
       this.setState({
-        id: clinic.id,
-        name: clinic.name,
-        address: clinic.address,
-        descriptionHTML: clinic.descriptionHTML,
-        descriptionMarkdown: clinic.descriptionMarkdown,
-        image: clinic.imageBase64,
+        id: blog.id,
+        name: blog.name,
+        descriptionHTML: blog.descriptionHTML,
+        descriptionMarkdown: blog.descriptionMarkdown,
+        image: blog.imageBase64,
       });
     }
   }
-  getAllClinic = async () => {
-    try {
-      const response = await getAllClinic("All");
-
-      if (response && response.errCode === 0) {
-        this.setState({
-          arrUsers: response.users,
-        });
-      } else {
-        console.error("Error fetching users:", response.errMessage);
-        // You might want to set a different state or show an error message to the user
-      }
-    } catch (error) {
-      console.error(
-        "An unexpected error occurred during user fetching:",
-        error
-      );
-      // You might want to set a different state or show an error message to the user
-    }
-  };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     /*  if (prevProps.allClinics !== this.props.allClinics) {
@@ -81,18 +58,18 @@ class ManageClinic extends Component {
         "CLINIC"
       );
       this.setState({
-        listClinic: dataSelect,
+        listBlog: dataSelect,
       });
     } */
     if (
       prevProps.allRequiredDoctorInfor !== this.props.allRequiredDoctorInfor
     ) {
-      let { resClinic } = this.props.allRequiredDoctorInfor;
+      let { resBlog } = this.props.allRequiredDoctorInfor;
 
-      let dataSelectClinic = this.buildDataInputSelect(resClinic, "CLINIC");
+      let dataSelectBlog = this.buildDataInputSelect(resBlog, "BLOG");
 
       this.setState({
-        listClinic: dataSelectClinic,
+        listBlog: dataSelectBlog,
       });
     }
   }
@@ -104,34 +81,33 @@ class ManageClinic extends Component {
     });
   };
 
-  handleCreateClinic = async () => {
-    let res = await createNewClinic(this.state);
+  handleCreateBlog = async () => {
+    let res = await createNewBlog(this.state);
     if (res && res.errCode === 0) {
-      toast.success("add new Clinic succeed");
-      await getAllClinic();
+      toast.success("add new Blog succeed");
+      await getAllBlog();
       this.setState({
         name: "",
-        address: "",
         imageBase64: "",
         descriptionHTML: "",
         descriptionMarkdown: "",
       });
     } else {
-      toast.error("add new Clinic error");
+      toast.error("add new Blog error");
     }
   };
 
   buildDataInputSelect = (inputData, type) => {
     let result = [];
     if (inputData && inputData.length > 0) {
-      if (type === "CLINIC") {
+      if (type === "BLOG") {
         inputData.map((item, index) => {
           let object = {};
           object.label = item.name;
           object.value = item.id;
           result.push(object);
         });
-        console.log("check input CLINIC", inputData);
+        console.log("check input BLOG", inputData);
       }
     }
     return result;
@@ -150,33 +126,24 @@ class ManageClinic extends Component {
     }
   };
 
-  handleChangeClinic = (selectClinic) => {
-    this.setState({ selectClinic }, () =>
-      console.log(`Option selected:`, this.state.selectClinic)
-    );
-    console.log(`Option selectClinic:`, this.state.selectClinic);
-  };
+  handleChangeSelect = async (selectBlog) => {
+    this.setState({ selectBlog });
+    let { listBlog } = this.state;
 
-  handleChangeSelect = async (selectClinic) => {
-    this.setState({ selectClinic });
-    let { listClinic } = this.state;
-
-    let res = await getAllDetailClinicById({ id: selectClinic.value });
+    let res = await getAllDetailBlogById({ id: selectBlog.value });
     if (res && res.errCode === 0) {
-      let clinic = res.data.Clinic;
+      let blog = res.data.Blog;
       let name = "",
-        address = "",
         image = "",
-        selectClinic = "",
+        selectBlog = "",
         id = "";
-      if (res.data.Clinic) {
-        name = res.data.Clinic.name;
-        address = res.data.Clinic.address;
-        image = res.data.Clinic.image;
-        selectClinic = listClinic.find((item) => {
+      if (res.data.Blog) {
+        name = res.data.Blog.name;
+        image = res.data.Blog.image;
+        selectBlog = listBlog.find((item) => {
           return item && item.value === id;
         });
-        console.log("res.data.Clinic", listClinic);
+        console.log("res.data.Blog", listBlog);
       }
       this.setState({
         descriptionHTML: res.data.descriptionHTML,
@@ -184,15 +151,14 @@ class ManageClinic extends Component {
         address: res.data.address,
         name: res.data.name,
         image: res.data.image,
-        selectClinic: selectClinic,
-        id: this.state.selectClinic.value,
+        selectBlog: selectBlog,
+        id: this.state.selectBlog.value,
       });
     } else {
       this.setState({
         descriptionHTML: "",
         descriptionMarkdown: "",
-        selectClinic: "",
-        address: "",
+        selectBlog: "",
         name: "",
         image: "",
         id: "",
@@ -232,64 +198,52 @@ class ManageClinic extends Component {
     });
   };
 
-  handleEditClinic = async () => {
-    const {
-      name,
-      address,
-      imageBase64,
-      descriptionHTML,
-      descriptionMarkdown,
-      id,
-    } = this.state;
+  handleEditBlog = async () => {
+    const { name, imageBase64, descriptionHTML, descriptionMarkdown, id } =
+      this.state;
 
     try {
       // Prepare clinic data to send for editing
-      const clinicData = {
+      const blogData = {
         id,
         name,
-        address,
         image: imageBase64,
         descriptionHTML,
         descriptionMarkdown,
       };
 
       // Call the editClinic function with the updated clinic data
-      const res = await editClinic(clinicData);
+      const res = await editBlog(blogData);
 
       // Check if the edit was successful
       if (res && res.errCode === 0) {
-        console.log("Clinic updated successfully:", res.data);
+        console.log(" Blog updated successfully:", res.data);
         // Optionally, you can update state or trigger any other action upon successful edit
-        toast.success("Clinic updated successfully");
+        toast.success(" Blog updated successfully");
         // Clear the form fields after successful edit
-        await getAllClinic();
         this.setState({
           name: "",
-          address: "",
           imageBase64: "",
           descriptionHTML: "",
           descriptionMarkdown: "",
           id: "",
         });
       } else {
-        console.error("Error updating clinic:", res.errMessage);
+        console.error("Error updating  Blog:", res.errMessage);
         // Handle error scenario, e.g., display error message, rollback changes, etc.
         // You can also use toast.error to display the error message
-        toast.error("Error updating clinic: " + res.errMessage);
+        toast.error("Error updating  Blog: " + res.errMessage);
       }
     } catch (error) {
-      console.error(
-        "An unexpected error occurred during clinic update:",
-        error
-      );
+      console.error("An unexpected error occurred during  Blog update:", error);
       // Handle unexpected errors, e.g., display generic error message, log error, etc.
       // You can also use toast.error to display the error message
       toast.error(
-        "An unexpected error occurred during clinic update. Please try again later."
+        "An unexpected error occurred during  Blog update. Please try again later."
       );
     }
   };
-  handleDeleteClinic = async (id) => {
+  handleDeleteBlog = async (id) => {
     // Show a confirmation dialog before deleting
     if (!id) {
       console.error("No id provided for deletion");
@@ -300,7 +254,7 @@ class ManageClinic extends Component {
     );
 
     if (isConfirmed) {
-      const res = await deleteClinic(id);
+      const res = await deleteBlog(id);
 
       if (res && res.errCode === 0) {
         // Successful deletion, update the user list
@@ -308,7 +262,7 @@ class ManageClinic extends Component {
         toast.success("Clinic deleted successfully");
         this.setState({
           name: "",
-          address: "",
+
           imageBase64: "",
           descriptionHTML: "",
           descriptionMarkdown: "",
@@ -323,21 +277,21 @@ class ManageClinic extends Component {
   render() {
     console.log("duy check state", this.state);
 
-    let listClinic = this.state.listClinic;
-    let { selectClinic } = this.state;
-    console.log("User canceled this.state.listClinic.value", selectClinic);
-    console.log("duy check state listClinic", this.state.listClinic);
+    let listBlog = this.state.listBlog;
+    let { selectBlog } = this.state;
+    console.log("User canceled this.state.listBlog.value", selectBlog);
+    console.log("duy check state listBlog", this.state.listBlog);
     return (
       <div className="manage-specialty-container container">
         <div className="ms-title">
-          <FormattedMessage id="admin.manage-doctor.manage-clinic" />
+          <FormattedMessage id="admin.manage-doctor.manage-blog" />
         </div>
 
         <div className="add-new-specialty row">
           <div className="col-md-6 form-group">
             <label htmlFor="name">
               {" "}
-              <FormattedMessage id="admin.manage-doctor.name-clinic" />
+              <FormattedMessage id="admin.manage-doctor.name-blog" />
             </label>
             <input
               id="name"
@@ -347,29 +301,18 @@ class ManageClinic extends Component {
             />
           </div>
           <div className="col-md-6 form-group">
-            <label htmlFor="selectClinic">
-              <FormattedMessage id="admin.manage-doctor.select-clinic" />
+            <label htmlFor="selectBlog">
+              <FormattedMessage id="admin.manage-doctor.select-blog" />
             </label>
             <Select
-              id="selectClinic"
-              name="selectClinic"
-              value={this.selectClinic}
-              options={this.state.listClinic}
+              id="selectBlog"
+              name="selectBlog"
+              value={this.selectBlog}
+              options={this.state.listBlog}
               onChange={this.handleChangeSelect}
               placeholder={
-                <FormattedMessage id="admin.manage-doctor.select-clinic" />
+                <FormattedMessage id="admin.manage-doctor.select-blog" />
               }
-            />
-          </div>
-          <div className="col-md-6 form-group">
-            <label htmlFor="address">
-              <FormattedMessage id="admin.manage-doctor.address-clinic" />
-            </label>
-            <input
-              id="address"
-              className="form-control"
-              value={this.state.address}
-              onChange={(event) => this.handleOnChangeText(event, "address")}
             />
           </div>
 
@@ -407,7 +350,7 @@ class ManageClinic extends Component {
                 <div className="col-md-4">
                   <button
                     className="btn-save-specialty created"
-                    onClick={() => this.handleCreateClinic()}
+                    onClick={() => this.handleCreateBlog()}
                   >
                     <FormattedMessage id="admin.manage-doctor.create-clinic" />
                   </button>
@@ -428,7 +371,7 @@ class ManageClinic extends Component {
           <div className="col-md-4">
             <button
               className="btn-save-specialty"
-              onClick={() => this.handleEditClinic()}
+              onClick={() => this.handleEditBlog()}
             >
               <FormattedMessage id="admin.manage-doctor.save-clinic" />
             </button>
@@ -436,7 +379,7 @@ class ManageClinic extends Component {
           <div className="col-md-4">
             <button
               className="btn-save-specialty delete"
-              onClick={() => this.handleDeleteClinic(this.state.id)}
+              onClick={() => this.handleDeleteBlog(this.state.id)}
             >
               <FormattedMessage id="admin.manage-doctor.delete-clinic" />
             </button>
@@ -451,7 +394,7 @@ const mapStateToProps = (state) => {
   return {
     language: state.app.language,
     allRequiredDoctorInfor: state.admin.allRequiredDoctorInfor,
-    allClinics: state.admin.allClinics,
+    allBlogs: state.admin.allBlogs,
   };
 };
 
@@ -461,4 +404,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageClinic);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageBlog);

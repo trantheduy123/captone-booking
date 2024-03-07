@@ -59,12 +59,12 @@ export const adminMenu = [
     ],
   },
   {
-    //quản lý cẩm nang
-    name: "menu.admin.handbook",
+    //quản lý blog
+    name: "menu.admin.blog",
     menus: [
       {
-        name: "menu.admin.manage-handbook",
-        link: "/system/manage-handbook",
+        name: "menu.admin.manage-blog",
+        link: "/system/manage-blog",
       },
     ],
   },

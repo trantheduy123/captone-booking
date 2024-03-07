@@ -1,6 +1,6 @@
 import db from "../models/index";
 
-let createSpecialty = (data) => {
+let createBlog = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
       if (
@@ -11,10 +11,10 @@ let createSpecialty = (data) => {
       ) {
         resolve({
           errCode: 1,
-          errMessage: "Missing parameter",
+          errMessage: "Missing parameter ",
         });
       } else {
-        await db.Specialty.create({
+        await db.Blog.create({
           name: data.name,
           image: data.imageBase64,
           descriptionHTML: data.descriptionHTML,
@@ -31,13 +31,13 @@ let createSpecialty = (data) => {
   });
 };
 
-let getAllSpecialty = () => {
+let getAllBlog = () => {
   return new Promise(async (resolve, reject) => {
     try {
-      let data = await db.Specialty.findAll();
+      let data = await db.Blog.findAll();
       if (data && data.length > 0) {
         data.map((item) => {
-          item.image = new Buffer(item.image, "base64").toString("binary");
+          item.image = Buffer.from(item.image).toString("binary");
           return item;
         });
       }
@@ -52,38 +52,25 @@ let getAllSpecialty = () => {
   });
 };
 
-let getDetailSpecialtyById = (inputId, location) => {
+let getDetailBlogById = (inputId, location) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (!inputId || !location) {
+      if (!inputId) {
         resolve({
           errCode: 1,
           errMessage: "Missing parameter",
         });
       } else {
-        let data = await db.Specialty.findOne({
+        let data = await db.Blog.findOne({
           where: {
             id: inputId,
           },
-          attributes: ["descriptionHTML", "descriptionMarkdown"],
+          attributes: ["name", "descriptionHTML", "descriptionMarkdown"],
         });
 
-        if (data) {
-          let doctorSpecialty = [];
+        // If no data found, return an empty object
+        if (!data) data = {};
 
-          if (location === "ALL") {
-            doctorSpecialty = await db.Doctor_infor.findAll({
-              where: { specialtyId: inputId },
-              attributes: ["doctorId", "provinceId"],
-            });
-          } else {
-            doctorSpecialty = await db.Doctor_infor.findAll({
-              where: { specialtyId: inputId, provinceId: location },
-              attributes: ["doctorId", "provinceId"],
-            });
-          }
-          data.doctorSpecialty = doctorSpecialty;
-        } else data = [];
         resolve({
           errCode: 0,
           errMessage: "ok",
@@ -96,7 +83,7 @@ let getDetailSpecialtyById = (inputId, location) => {
   });
 };
 
-let editSpecialty = (data) => {
+let editBlog = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
       // Check if 'id' is missing in the data
@@ -109,21 +96,21 @@ let editSpecialty = (data) => {
       }
 
       // Find the user by 'id'
-      let specialty = await db.Specialty.findOne({
+      let blog = await db.Blog.findOne({
         where: { id: data.id },
         raw: false,
       });
 
       // Check if the user is found
-      if (specialty) {
+      if (blog) {
         // Update user data
-        specialty.name = data.name;
-        specialty.descriptionMarkdown = data.descriptionMarkdown;
-        specialty.descriptionHTML = data.descriptionHTML;
-        specialty.image = data.image;
+        blog.name = data.name;
+        blog.descriptionMarkdown = data.descriptionMarkdown;
+        blog.descriptionHTML = data.descriptionHTML;
+        blog.image = data.image;
 
         // Save the updated user
-        await specialty.save();
+        await blog.save();
 
         resolve({
           errCode: 0,
@@ -141,24 +128,24 @@ let editSpecialty = (data) => {
   });
 };
 
-let deleteSpecialty = async (specialty) => {
+let deleteBlog = async (blog) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let foundUser = await db.Specialty.findOne({
-        where: { id: specialty.id },
+      let foundUser = await db.Blog.findOne({
+        where: { id: blog.id },
       });
       if (!foundUser) {
         resolve({
           errCode: 2,
-          errMessage: "The Specialty doesn't exist",
+          errMessage: "The blog doesn't exist",
         });
       }
-      await db.Specialty.destroy({
-        where: { id: specialty.id },
+      await db.Blog.destroy({
+        where: { id: blog.id },
       });
       resolve({
         errCode: 0,
-        errMessage: "The Specialty is deleted",
+        errMessage: "The blog is deleted",
       });
     } catch (error) {
       reject(error);
@@ -167,9 +154,9 @@ let deleteSpecialty = async (specialty) => {
 };
 
 module.exports = {
-  createSpecialty: createSpecialty,
-  getAllSpecialty: getAllSpecialty,
-  getDetailSpecialtyById: getDetailSpecialtyById,
-  editSpecialty: editSpecialty,
-  deleteSpecialty: deleteSpecialty,
+  createBlog: createBlog,
+  getAllBlog: getAllBlog,
+  getDetailBlogById: getDetailBlogById,
+  editBlog: editBlog,
+  deleteBlog: deleteBlog,
 };

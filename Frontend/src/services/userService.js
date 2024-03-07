@@ -91,6 +91,18 @@ const getAllSpecialty = () => {
   return axios.get(`/api/get-specialty`);
 };
 
+const editSpecialty = (inputData) => {
+  return axios.put("/api/edit-specialty", inputData);
+};
+
+const deleteSpecialty = (specialty) => {
+  return axios.delete("/api/delete-specialty", {
+    data: {
+      id: specialty,
+    },
+  });
+};
+
 const getAllDetailSpecialtyById = (data) => {
   return axios.get(
     `/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`
@@ -113,15 +125,6 @@ const deleteClinic = (clinic) => {
   });
 };
 
-/* const deleteUserService = (userId) => {
-  return axios.delete("/api/delete-user", {
-    data: {
-      id: userId,
-    },
-  });
-};
- */
-
 const getAllClinic = () => {
   return axios.get(`/api/get-clinic`);
 };
@@ -138,6 +141,34 @@ const getAllPatientForDoctor = (data) => {
 
 const postSendRemedy = (data) => {
   return axios.post("/api/send-remedy", data);
+};
+
+const postSendEmail = (data) => {
+  return axios.post("/api/send-email", data);
+};
+
+const createNewBlog = (data) => {
+  return axios.post("/api/create-new-blog", data);
+};
+
+const editBlog = (inputData) => {
+  return axios.put("/api/edit-blog", inputData);
+};
+
+const deleteBlog = (blog) => {
+  return axios.delete("/api/delete-blog", {
+    data: {
+      id: blog,
+    },
+  });
+};
+
+const getAllBlog = () => {
+  return axios.get(`/api/get-blog`);
+};
+
+const getAllDetailBlogById = (data) => {
+  return axios.get(`/api/get-detail-blog-by-id?id=${data.id}`);
 };
 
 export {
@@ -170,4 +201,12 @@ export {
   postSendRemedy,
   editClinic,
   deleteClinic,
+  editSpecialty,
+  deleteSpecialty,
+  createNewBlog,
+  editBlog,
+  deleteBlog,
+  getAllBlog,
+  getAllDetailBlogById,
+  postSendEmail,
 };

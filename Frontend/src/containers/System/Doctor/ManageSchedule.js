@@ -4,7 +4,7 @@ import "./ManageSchedule.scss";
 import { FormattedMessage } from "react-intl";
 import Select from "react-select";
 import * as actions from "../../../store/actions";
-import { LANGUAGES, dateFormat } from "../../../utils";
+import { LANGUAGES, USER_ROLE, dateFormat } from "../../../utils";
 import DatePicker from "../../../components/Input/DatePicker";
 import moment, { invalid } from "moment";
 import { toast } from "react-toastify";
@@ -25,6 +25,21 @@ class ManageSchedule extends Component {
   componentDidMount() {
     this.props.fetchAllDoctor();
     this.props.fetchAllScheduleTime();
+    const { userInfo } = this.props;
+    const { roleId } = userInfo; // Assuming roleId is directly available in userInfo
+
+    // Constructing options array for the doctor
+    const doctorOptions = [
+      {
+        value: userInfo.id,
+        label: `${userInfo.firstName} ${userInfo.lastName}`,
+      },
+    ];
+
+    // Conditional rendering of options based on user role
+    const options = roleId === "R1" ? this.state.listDoctors : doctorOptions;
+
+    this.setState({ options });
   }
   buildDataInputSelect = (inputData) => {
     let result = [];
@@ -139,9 +154,25 @@ class ManageSchedule extends Component {
     });
   };
   render() {
-    console.log("tran the duy check state", this.state);
+    console.log("tran the duy check state schedual", this.state);
+    console.log("tran the duy check state schedual", this.state.selectedDoctor);
+
     let { rangeTime } = this.state;
     let { language } = this.props;
+    const { userInfo } = this.props;
+    const { roleId } = userInfo; // Assuming roleId is directly available in userInfo
+
+    // Constructing options array for the doctor
+    const doctorOptions = [
+      {
+        value: userInfo.id,
+        label: `${userInfo.firstName} ${userInfo.lastName}`,
+      },
+    ];
+
+    // Conditional rendering of options based on user role
+    const options = roleId === "R1" ? this.state.listDoctors : doctorOptions;
+
     let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
     return (
       <div className="manage-schedule-container">
@@ -158,7 +189,7 @@ class ManageSchedule extends Component {
               <Select
                 value={this.state.selectedDoctor}
                 onChange={this.handleChangeSelect}
-                options={this.state.listDoctors}
+                options={options}
               />
             </div>
 
@@ -211,6 +242,7 @@ class ManageSchedule extends Component {
 const mapStateToProps = (state) => {
   return {
     language: state.app.language,
+    userInfo: state.user.userInfo,
     allDoctors: state.admin.allDoctors,
     isLoggedIn: state.user.isLoggedIn,
     allScheduleTime: state.admin.allScheduleTime,

@@ -8,6 +8,13 @@ $searchBoxWidth: 50%;
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: fixed; /* Make the header fixed */
+    z-index: 999999;
+    top: 0; /* Stick the header to the top of the viewport */
+            width: 100%;
+    @media only screen and (max-width: 767px) { 
+        padding: 0;
+    }
 
     // Global content styles
     .home-header-content {
@@ -40,7 +47,7 @@ $searchBoxWidth: 50%;
                 cursor: pointer;
             }
             @media only screen and (max-width: 767px) { 
-                display: none;
+                width: 60%;
             }
         }
 
@@ -54,13 +61,13 @@ $searchBoxWidth: 50%;
             .child-content {
                 flex: 1;
                 text-align: center;
-
+                
                 // Bold text styles
                 b {
                     color: #333;
                     font-size: large;
                     @media only screen and (max-width: 767px) { 
-                        font-size: 0.9rem;
+                        font-size: small;
                     }
                 }
 
@@ -71,6 +78,7 @@ $searchBoxWidth: 50%;
                     padding-top: 10px;
                     @media only screen and (max-width: 767px) { 
                         font-size: 0.7rem;
+                        display: none;
                     }
                 }
             }
@@ -89,17 +97,17 @@ $searchBoxWidth: 50%;
                 color: $primaryColor;
                 font-size: 16px;
                 cursor: pointer;
-                
+                margin-right: 30px;
+                margin-left: 10px;
                 display: flex;
-                align-items: center;
-                padding-right: 50px;
+                align-items: normal;
                 
                 i {
                   margin-left: 8px;
                   
                 }
                 @media only screen and (max-width: 767px) { 
-                    display: none;
+                    
                  }
                 
             }
@@ -149,6 +157,7 @@ $searchBoxWidth: 50%;
 
 // Banner styles
 .home-header-banner {
+    margin-top: 104px;
     background: linear-gradient(rgba(17, 17, 17, 0.3), rgba(0, 0, 0, 0.7)), url('../../assets/images/background-header.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -204,7 +213,7 @@ $searchBoxWidth: 50%;
             background-color: $primaryColor;
             margin-top: 4vh;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 50%;
+            width: 80%;
             margin: 0 auto;
             cursor: pointer;
 
@@ -214,7 +223,7 @@ $searchBoxWidth: 50%;
                 color: $secondaryColor;
                 font-size: 1.5rem;
                 @media only screen and (max-width: 767px) { 
-                    font-size: 0.9rem;
+                    font-size: small;
                     
                 }
             }
@@ -241,12 +250,12 @@ $searchBoxWidth: 50%;
                     opacity: 0.7;
                     font-size: 1.5rem;
                     @media only screen and (max-width: 767px) { 
-                        font-size: 0.9rem;
+                        font-size: small;
                        
                     }
                 }
                 @media only screen and (max-width: 767px) { 
-                    font-size: 0.9rem;
+                    font-size: small;
                     
                 }
             }
@@ -341,6 +350,7 @@ $searchBoxWidth: 50%;
 @media only screen and (max-width: 767px) {
     .home-header-content {
         flex-direction: column;
+        padding: 0;
      
         // Hide left-content on smaller screens
         .left-content {
@@ -353,10 +363,16 @@ $searchBoxWidth: 50%;
             }
         }
 
+         // Support section styles
+       
+        .right-content {
+            width: 50%;
+            justify-content: center;
+
+        }
         .center-content,
         .right-content {
             width: 100%;
-            margin-top: 15px;
             justify-content: center;
 
         }

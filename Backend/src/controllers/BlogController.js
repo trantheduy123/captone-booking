@@ -1,20 +1,9 @@
-import specialtyService from "../services/specialtyService";
 import db from "../models/index";
-let createSpecialty = async (req, res) => {
+import BlogService from "../services/BlogService";
+
+let createBlog = async (req, res) => {
   try {
-    let infor = await specialtyService.createSpecialty(req.body);
-    return res.status(200).json(infor);
-  } catch (e) {
-    console.log(e);
-    return res.status(200).json({
-      errCode: -1,
-      message: "Error from server",
-    });
-  }
-};
-let getAllSpecialty = async (req, res) => {
-  try {
-    let infor = await specialtyService.getAllSpecialty();
+    let infor = await BlogService.createBlog(req.body);
     return res.status(200).json(infor);
   } catch (e) {
     console.log(e);
@@ -25,12 +14,9 @@ let getAllSpecialty = async (req, res) => {
   }
 };
 
-let getDetailSpecialtyById = async (req, res) => {
+let getAllBlog = async (req, res) => {
   try {
-    let infor = await specialtyService.getDetailSpecialtyById(
-      req.query.id,
-      req.query.location
-    );
+    let infor = await BlogService.getAllBlog();
     return res.status(200).json(infor);
   } catch (e) {
     console.log(e);
@@ -40,15 +26,29 @@ let getDetailSpecialtyById = async (req, res) => {
     });
   }
 };
-let editSpecialty = async (req, res) => {
+
+let getDetailBlogById = async (req, res) => {
+  try {
+    let infor = await BlogService.getDetailBlogById(req.query.id);
+    return res.status(200).json(infor);
+  } catch (e) {
+    console.log(e);
+    return res.status(200).json({
+      errCode: -1,
+      message: "Error from server",
+    });
+  }
+};
+
+let editBlog = async (req, res) => {
   let data = req.body;
-  let message = await specialtyService.editSpecialty(data);
+  let message = await BlogService.editBlog(data);
   return res.status(200).json(message);
 };
 
-let deleteSpecialty = async (req, res) => {
+let deleteBlog = async (req, res) => {
   try {
-    let infor = await specialtyService.deleteSpecialty(req.body);
+    let infor = await BlogService.deleteBlog(req.body);
     return res.status(200).json(infor);
   } catch (e) {
     console.log(e);
@@ -58,11 +58,10 @@ let deleteSpecialty = async (req, res) => {
     });
   }
 };
-
 module.exports = {
-  createSpecialty: createSpecialty,
-  getAllSpecialty: getAllSpecialty,
-  getDetailSpecialtyById: getDetailSpecialtyById,
-  editSpecialty: editSpecialty,
-  deleteSpecialty: deleteSpecialty,
+  createBlog: createBlog,
+  getAllBlog: getAllBlog,
+  getDetailBlogById: getDetailBlogById,
+  editBlog: editBlog,
+  deleteBlog: deleteBlog,
 };

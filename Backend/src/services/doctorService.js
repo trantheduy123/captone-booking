@@ -544,6 +544,28 @@ let sendRemedy = (data) => {
   });
 };
 
+let sendEmail = (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (!data.email) {
+        resolve({
+          errCode: 1,
+          errMessage: "Missing required parameters",
+        });
+      } else {
+        await emailService.sendEmailtoPatient(data);
+
+        resolve({
+          errCode: 0,
+          errMessage: "ok",
+        });
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 module.exports = {
   getTopDoctorHome: getTopDoctorHome,
   getAllDoctors: getAllDoctors,
@@ -555,4 +577,5 @@ module.exports = {
   getProfileDoctorById: getProfileDoctorById,
   getListPatientForDoctor: getListPatientForDoctor,
   sendRemedy: sendRemedy,
+  sendEmail: sendEmail,
 };

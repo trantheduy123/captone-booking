@@ -1,6 +1,6 @@
 .detail-specialty-container {
+  .detail-specialty-body {
     .description-specialty {
-      
       background-color: #e8f2f5;
       padding: 20px;
       border-radius: 8px;
@@ -8,57 +8,78 @@
       color: #333;
       margin-bottom: 20px;
       line-height: normal;
-    }
-    .search-sp-doctor{
-        select{
 
-            word-wrap: normal;
-            height: 30px;
-            padding: 5px;
-            border: none;
-            outline: none;
-            border-radius: 3px;
-            margin-right: 5px;
-            background-color: #e8f2f5;
-        }
+      .clinic-name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .clinic-address {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .clinic-p {
+        margin-bottom: 10px;
+      }
     }
-    .detail-specialty-body {
-      margin: 0 50px;
-    }
-  
+
     .each-doctor {
       display: flex;
-      padding: 20px;
-      width: 100%;
-      min-height: 300px;
-      margin: 20px 0;
-      background-color: #e8f2f5;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-  
+      margin-bottom: 20px;
+
       .dt-content-left {
-        width: 60%;
-        border-right: 2px solid #ddd;
-        padding: 20px;
+        width: 100%;
+        padding-right: 20px;
       }
-  
+
       .dt-content-right {
-        width: 40%;
-  
+        width: 100%;
+        display: flex;
         .doctor-schedule {
-          padding: 20px;
-          border-bottom: 2px solid #ddd;
+        
+          width: 70%;
         }
-  
         .doctor-extra-infor {
-          padding: 20px;
-        }
-      }
-      .profile-doctor-container{
-        .down{
-            padding: 5px;
+          
+          width: 50%;
         }
       }
     }
   }
-  
+
+  @media screen and (max-width: 768px) {
+    .detail-specialty-body {
+      .each-doctor {
+        .dt-content-left {
+          width: 100%;
+          display: block;
+        }
+       
+        .dt-content-right{
+          display: none ;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .detail-specialty-body {
+      .description-specialty {
+        font-size: 16px;
+      }
+
+      .each-doctor {
+        .dt-content-left {
+          width: 100%;
+          display: block;
+        }
+       
+        .dt-content-right{
+          display: none ;
+        }
+      }
+    }
+  }
+}

@@ -13,8 +13,8 @@ class About extends Component {
     return (
       <div className="section-share section-about">
         <div className="section-container">
-          <div className="section-about-header">
-            Truyền Thông nói về Booking Dental
+          <div className="section-about-header ">
+            <FormattedMessage id="patient.about.about-title" />
           </div>
           <div className="section-about-content">
             <div className="content-left">
@@ -50,7 +50,10 @@ class About extends Component {
                         </svg>
                       </span>
                       <p class="info-text">
-                        <span>Địa chỉ:</span>
+                        <span>
+                          {" "}
+                          <FormattedMessage id="patient.about.address" />
+                        </span>
                         Quận 3, TP Hồ Chí Minh, Việt Nam
                       </p>
                     </li>
@@ -81,7 +84,10 @@ class About extends Component {
                         </svg>
                       </span>
                       <p class="info-text">
-                        <span>Số điện thoại:</span>
+                        <span>
+                          {" "}
+                          <FormattedMessage id="patient.about.phone" />
+                        </span>
                         0987654321
                       </p>
                     </li>
@@ -103,7 +109,10 @@ class About extends Component {
                         </svg>
                       </span>
                       <p class="info-text">
-                        <span>email:</span>
+                        <span>
+                          {" "}
+                          <FormattedMessage id="patient.about.email" />
+                        </span>
                         bookingdental@gmail.com
                       </p>
                     </li>

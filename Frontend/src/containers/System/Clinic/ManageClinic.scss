@@ -1,76 +1,102 @@
 .manage-specialty-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     .ms-title {
-        text-align: center;
-        margin: 10px 0;
-        text-transform: uppercase;
-        font-size: 20px;
-        font-weight: bold;
-        color: #3498db;
+      text-align: center;
+      margin: 20px 0;
+      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: bold;
+      color: #3498db;
     }
-
+  
     .add-new-specialty {
-        margin-top: 20px;
-
-        .form-group {
-            margin-bottom: 20px;
-
-            label {
-                font-weight: bold;
-            }
-
-            .label-upload {
-                padding: 8px 12px;
-                border-radius: 4px;
-                background: #ddd;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-
-                &:hover {
-                    background-color: #a0a0a0;
-                }
-
-                i {
-                    margin-left: 5px;
-                }
-            }
-
-            .preview-image {
-                height: 100px;
-                width: 100%;
-                background: center center no-repeat;
-                background-size: contain;
-                border: 1px solid #ddd;
-                cursor: pointer;
-                margin-top: 10px;
-            }
-        }
-    }
-
-    .editor-container {
-        margin-top: 20px;
+      margin-top: 20px;
+  
+      .form-group {
         margin-bottom: 20px;
-
-        .editor-wrapper {
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px;
-            height: 500px;
+  
+        label {
+          font-weight: bold;
+          margin-bottom: 10px;
         }
+  
+        .label-upload {
+          padding: 8px 12px;
+          border-radius: 4px;
+          background: #ddd;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #a0a0a0;
+          }
+  
+          i {
+            margin-left: 5px;
+          }
+        }
+  
+        .preview-image {
+          height: 100px;
+          width: 100%;
+          background: center center no-repeat;
+          background-size: contain;
+          border: 1px solid #ddd;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+      }
     }
-
+  
+    .col-md-12 {
+      margin: 20px 0;
+    }
+  
     .btn-save-specialty {
-        display: block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: #0056b3;
-        }
+      display: block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+   
+  
+      &.created {
+        
+        background-color: #28a745;
+        
+      }
+  
+      &.delete {
+        margin-left: 5px;
+        background-color: #dc3545; /* Red color for delete button */
+      }
     }
-}
+  
+    @media (max-width: 768px) {
+      .col-md-6 {
+        width: 100%;
+      }
+  
+      .preview-image {
+        height: 150px;
+      }
+  
+      .ms-title {
+        font-size: 20px;
+      }
+    }
+  }
+  

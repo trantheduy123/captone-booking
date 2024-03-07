@@ -1,140 +1,138 @@
 .doctor-extra-infor-container {
-    padding-left: 15px;
-  
-    .content-up {
-      margin-bottom: 15px;
-  
-      .text-address {
-        text-transform: uppercase;
-        color: #333;
-        font-size: 18px;
-        text-transform: uppercase;
-        margin-bottom: 5px;
-        line-height: normal;
-        font-family: auto;
-        font-weight: 900;
-      }
-  
-      .name-clinic {
-        font-size: small;
-        font-weight: bold;
-        color: #333;
-        line-height: normal;
-      }
-  
-      .detail-address {
-        font-weight: 500;
-        color: #555;
-        font-size: small;
-        line-height: normal;
-      }
+  padding-left: 15px;
+
+  .content-up {
+    margin-bottom: 15px;
+
+    .text-address {
+      text-transform: uppercase;
+      color: #333;
+      font-size: 18px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      line-height: normal;
+      font-weight: 900;
+      font-family: 'Font Awesome 5 Free';
     }
-  
-    .content-down {
-      .short-infor {
-        span {
-          cursor: pointer;
-          color: #45c3d2;
-          font-weight: bold;
-          text-decoration: none;
-          transition: color 0.3s ease;
-          
-          &:hover {
-            color: #2c8da7;
-          }
-        }
-        .currency{
-          margin: 0 5px;
-        }
-      }
-  
-      .title-price {
-        font-size: medium;
-        font-weight: bold;
-        margin-bottom: 10px;
-        line-height: 1.6;
-      }
-  
-      .title-detail {
-        border: 1px solid #ddd;
-        padding: 10px;
-        background-color: #f8f8f8;
-        border-radius: 5px;
-  
-        .price {
-          font-size: small;
-          margin-bottom: 5px;
-  
-          .right {
-            float: right;
-            color: #45c3d2;
-            font-weight: bold;
-          }
-        }
-  
-        .note {
-            font-size: small;
-            color: #555;
-            line-height: normal;
-            flex-wrap: wrap; /* This is not applicable here, as flex-wrap applies to flex containers */
-            word-wrap: break-word; /* Enable word wrapping */
-          }
-      }
-  
-      .payment {
-        border: 1px solid #ccc;
-        padding: 10px;
-        background-color: #f5f5f5;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        flex-wrap: wrap; /* This is not applicable here, as flex-wrap applies to flex containers */
-        word-wrap: break-word; /* Enable word wrapping */
-      }
-  
-      .hide-price {
-        margin-top: 5px;
-        color: #45c3d2;
+
+    .name-clinic {
+      font-size: small;
+      font-weight: bold;
+      color: #333;
+      line-height: normal;
+    }
+
+    .detail-address {
+      font-weight: 500;
+      color: #555;
+      font-size: small;
+      line-height: normal;
+    }
+  }
+
+  .content-down {
+    .short-infor {
+      span {
         cursor: pointer;
+        color: #45c3d2;
         font-weight: bold;
         text-decoration: none;
         transition: color 0.3s ease;
+
         &:hover {
           color: #2c8da7;
         }
       }
+      .currency {
+        margin: 0 5px;
+      }
     }
-  
-    // Responsive Design
-    @media screen and (max-width: 768px) {
-      padding-left: 10px;
-  
-      .content-up {
-        .text-address {
-          font-size: small;
-        }
-        .name-clinic {
-          font-size: smaller;
-        }
-        .detail-address {
-          font-size: x-small;
+
+    .title-price {
+      font-size: medium;
+      font-weight: bold;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .title-detail {
+      border: 1px solid #ddd;
+      padding: 10px;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+
+      .price {
+        font-size: small;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+        .right {
+          float: right;
+          color: #45c3d2;
+          font-weight: bold;
         }
       }
-  
-      .content-down {
-        .title-price {
+
+      .note {
+        font-size: small;
+        color: #555;
+        line-height: normal;
+        word-wrap: break-word; /* Enable word wrapping */
+      }
+    }
+
+    .payment {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      word-wrap: break-word; /* Enable word wrapping */
+    }
+
+    .hide-price {
+      margin-top: 5px;
+      color: #45c3d2;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      &:hover {
+        color: #2c8da7;
+      }
+    }
+  }
+
+  // Responsive Design
+  @media screen and (max-width: 768px) {
+    padding-left: 10px;
+
+    .content-up {
+      .text-address {
+        font-size: small;
+      }
+      .name-clinic {
+        font-size: small;
+      }
+      .detail-address {
+        font-size: small;
+      }
+    }
+
+    .content-down {
+      .title-price {
+        font-size: small;
+      }
+
+      .title-detail {
+        .price .right {
           font-size: small;
         }
-  
-        .title-detail {
-          .price .right {
-            font-size: small;
-          }
-  
-          .note {
-            font-size: x-small;
-          }
+
+        .note {
+          font-size: x-small;
         }
       }
     }
   }
-  
+}

@@ -11,6 +11,7 @@ import {
   saveDetailDoctor,
   getAllSpecialty,
   getAllClinic,
+  getAllBlog,
 } from "../../services/userService";
 
 export const fetchGenderStart = () => {
@@ -267,7 +268,7 @@ export const fetchAllClinics = () => {
       if (res && res.errCode === 0) {
         dispatch({
           type: actionTypes.FETCH_ALL_CLINIC_SUCCESS,
-          dataDr: res.data,
+          dataClinics: res.data,
         });
       } else {
         dispatch({
@@ -278,6 +279,53 @@ export const fetchAllClinics = () => {
       console.log("Error:", e);
       dispatch({
         type: actionTypes.FETCH_ALL_CLINIC_FAILED,
+      });
+    }
+  };
+};
+
+export const fetchAllBlogs = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllBlog();
+
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALL_BLOG_SUCCESS,
+          dataBlogs: res.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALL_BLOG_FAILED,
+        });
+      }
+    } catch (e) {
+      console.log("Error:", e);
+      dispatch({
+        type: actionTypes.FETCH_ALL_BLOG_FAILED,
+      });
+    }
+  };
+};
+export const fetchSpecialty = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllSpecialty();
+
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALL_SPECIALTY_SUCCESS,
+          dataSpecialty: res.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALL_SPECIALTY_FAILED,
+        });
+      }
+    } catch (e) {
+      console.log("Error:", e);
+      dispatch({
+        type: actionTypes.FETCH_ALL_SPECIALTY_FAILED,
       });
     }
   };
@@ -347,6 +395,7 @@ export const getRequiredDoctorInfor = () => {
       let resProvince = await getAllCodeService("PROVINCE");
       let resSpecialty = await getAllSpecialty();
       let resClinic = await getAllClinic();
+      let resBlog = await getAllBlog();
 
       if (
         resPrice &&
@@ -358,7 +407,9 @@ export const getRequiredDoctorInfor = () => {
         resSpecialty &&
         resSpecialty.errCode === 0 &&
         resClinic &&
-        resClinic.errCode === 0
+        resClinic.errCode === 0 &&
+        resBlog &&
+        resBlog.errCode === 0
       ) {
         let data = {
           resPrice: resPrice.data,
@@ -366,6 +417,7 @@ export const getRequiredDoctorInfor = () => {
           resProvince: resProvince.data,
           resSpecialty: resSpecialty.data,
           resClinic: resClinic.data,
+          resBlog: resBlog.data,
         };
 
         dispatch(fetchRequiredDoctorInforSuccess(data));

@@ -2,6 +2,7 @@
     padding: 50px;
     background-color: #3498db;
     color: #FFF;
+    width: 100%;
   }
   
   @media screen and (max-width: 940px) {
@@ -61,6 +62,7 @@
     background-color: #1b71ab;
     font-size: 0.85rem;
     color: #FFF;
+    width: 100%;
   }
   
   .copy a {

@@ -10,7 +10,7 @@
         "fee": "Gói khám",
         "check-health": "Khám sức khỏe tổng quát",
         "support": "Hỗ trợ",
-        "welcome":"Xin chào, "
+        "welcome":"Hellu "
     },
     "banner": {
         "title1": "ĐẶT LỊCH KHÁM NHA KHOA",
@@ -23,6 +23,7 @@
         "child5":"Bảng giá dịch vụ"
 
     },
+    
     
 
     "menu": {
@@ -46,6 +47,8 @@
             "crud-redux": "CRUD redux",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lý phòng khám",
+            "blog": "Cẩm nang",
+            "manage-blog": "Quản lý cẩm nang",
             "specialist": "Chuyên khoa",
             "manage-specialist": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
@@ -100,9 +103,17 @@
             "payment": "Người khám bệnh có thể thanh toán chi phí bằng hình thức:",
             "hide-price": "Ẩn bảng giá"
         },
+        "about":{
+            "about-title":"Truyền Thông nói về Booking Dental",
+            "address": "Địa chỉ: ",
+            "phone": "Số điện thoại: ",
+            "email": "Email: "
+          
+        },
         "booking-modal":{
             "title": "Thông tin đặt lịch khám bệnh",
             "fullname":"Họ và tên",
+            "email":"Địa chỉ email",
             "phonenumber": "Số điện thoại",
             "address": "Địa chỉ liên hệ",
             "reason": "Lí do khám",
@@ -111,7 +122,28 @@
             "btnConfirm": "Xác nhận",
             "btnCancle":    "Hủy",
             "price-booking":"Miễn phí đặt lịch"
-
+        },
+        "slider-about":{
+            "title-1":"Chúng tôi đang cung cấp điều trị bởi một số bác sĩ có kinh nghiệm",
+            "title-2": "Phòng khám nha khoa Booking Dental Clinic - Sự lựa chọn hàng đầu cho sức khỏe răng miệng của bạn!",
+            "title-3": "Chúng tôi có các bác sĩ giàu kinh nghiệm.",
+            "title-4": "Dịch vụ y tế tốt nhất là mục tiêu chính của chúng tôi.",
+            "title-5": "Chúng tôi có trung tâm hỗ trợ khách hàng.",
+            "title-6": "Cung cấp điều trị đẳng cấp thế giới.",
+            "title-7": "Chúng tôi có các phòng thí nghiệm hiện đại.",
+            "title-8": "Cơ sở y tế nổi bật",
+            "title-9": "Xem thêm",
+            "title-10": "Cẩm nang",
+            
+"title-12": "Tham gia bản tin của chúng tôi",
+"title-11": "Nhận bản tóm tắt hàng tháng của chúng tôi với tin tức, bài viết và tài nguyên mới nhất"
+        },
+        "testimonial":{
+            "title-1":"Khách hàng",
+            "title-2": "Hãy xem mọi người nói gì về chúng tôi",
+            "title-3": "Tôi rất hài lòng với dịch vụ tại phòng khám nha khoa này. Đội ngũ bác sĩ rất chu đáo và am hiểu, giúp tôi cảm thấy thoải mái và tự tin hơn về sức khỏe răng miệng của mình.",
+            "title-4": "Tôi rất hài lòng với dịch vụ tại phòng khám nha khoa này. Đội ngũ bác sĩ rất chu đáo và am hiểu, giúp tôi cảm thấy thoải mái và tự tin hơn về sức khỏe răng miệng của mình.",
+            "title-5": "Tôi rất hài lòng với dịch vụ tại phòng khám nha khoa này. Đội ngũ bác sĩ rất chu đáo và am hiểu, giúp tôi cảm thấy thoải mái và tự tin hơn về sức khỏe răng miệng của mình."
         }
 
 
@@ -137,7 +169,22 @@
             "addressClinic": "Địa chỉ phòng khám",
             "note": "Ghi chú",
             "specialty": "Chọn chuyên khoa",
-            "select-clinic": "Chọn phòng khám"
+            "select-clinic": "Chọn phòng khám",
+            
+            "manage-clinic": "Quản lý phòng khám",
+            "name-clinic": "Tên phòng khám",
+            "address-clinic": "Địa chỉ phòng khám",
+            "save-clinic": "Lưu",
+            "create-clinic": "Tạo mới",
+            "delete-clinic": "Xóa",
+
+            "manage-blog": "Quản lý cẩm nang",
+            "name-blog": "Tên cẩm nang",
+            "select-blog": "Chọn cẩm nang",
+
+            "manage-specialty": "Quản lý chuyên khoa",
+            "name-specialty": "Tên chuyên khoa",
+            "select-specialty": "Chọn chuyên khoa"
            
         }
     }

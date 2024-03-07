@@ -114,19 +114,19 @@ class ProfileDoctor extends Component {
             <div className="up">
               {language === LANGUAGES.VI ? nameVi : nameEn}
             </div>
-            <div className="down">
-              {isShowDescriptionDoctor === true ? (
-                <>
-                  {dataProfile &&
-                    dataProfile.Markdown &&
-                    dataProfile.Markdown.description && (
-                      <span>{dataProfile.Markdown.description}</span>
-                    )}
-                </>
-              ) : (
-                <>{this.renderTimeBooking(dataTime)}</>
-              )}
-            </div>
+          </div>
+          <div className="down">
+            {isShowDescriptionDoctor === true ? (
+              <>
+                {dataProfile &&
+                  dataProfile.Markdown &&
+                  dataProfile.Markdown.description && (
+                    <span>{dataProfile.Markdown.description}</span>
+                  )}
+              </>
+            ) : (
+              <>{this.renderTimeBooking(dataTime)}</>
+            )}
           </div>
         </div>
         <div className="profile-doctor">

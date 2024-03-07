@@ -4,6 +4,7 @@ import "./MedicalFacility.scss";
 import Slider from "react-slick";
 import { getAllClinic } from "../../../services/userService";
 import { withRouter } from "react-router";
+import { FormattedMessage } from "react-intl";
 
 class MedicalFacility extends Component {
   constructor(props) {
@@ -21,11 +22,19 @@ class MedicalFacility extends Component {
       });
     }
     console.log("tran the duy check", res);
+    this.handleViewDetailClinicMore =
+      this.handleViewDetailClinicMore.bind(this);
   }
 
   handleViewDetailClinic = (clinic) => {
     if (this.props.history) {
       this.props.history.push(`/detail-clinic/${clinic.id}`);
+    }
+  };
+
+  handleViewDetailClinicMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-clinic-more");
     }
   };
 
@@ -35,8 +44,16 @@ class MedicalFacility extends Component {
       <div className="section-share section-medical-facility">
         <div className="section-container">
           <div className="section-header">
-            <span className="title-section">Co So Y Te Noi Bat</span>
-            <button className="btn-section">Xem thêm</button>
+            <span className="title-section">
+              {" "}
+              <FormattedMessage id="patient.slider-about.title-8" />
+            </span>
+            <button
+              className="btn-section"
+              onClick={this.handleViewDetailClinicMore}
+            >
+              <FormattedMessage id="patient.slider-about.title-9" />
+            </button>
           </div>
           <div className="section-body">
             <Slider {...this.props.settings}>

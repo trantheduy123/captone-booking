@@ -17,7 +17,6 @@ class HomeHeader extends Component {
     this.state = {
       selectedOptions: "",
       listDoctors: [],
-      arrDoctor: [],
     };
   }
 
@@ -156,9 +155,9 @@ class HomeHeader extends Component {
             <div className="right-content">
               <div className="support">
                 <FormattedMessage id="homeheader.welcome" />{" "}
-                {userInfo && userInfo.firstName ? userInfo.firstName : ""} !{" "}
+                {userInfo && userInfo.firstName ? userInfo.firstName : ""}
                 <div
-                  className="btn btn-logout support "
+                  className="btn-logout support "
                   onClick={processLogout}
                   title="Log out"
                 >

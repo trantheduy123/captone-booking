@@ -5,6 +5,8 @@ import doctorController from "../controllers/doctorController";
 import patientController from "../controllers/patientController";
 import specialtyController from "../controllers/specialtyController";
 import ClinicController from "../controllers/ClinicController";
+import BlogController from "../controllers/BlogController";
+
 let router = express.Router();
 
 let initWebRoutes = (app) => {
@@ -59,6 +61,7 @@ let initWebRoutes = (app) => {
   );
 
   router.post("/api/send-remedy", doctorController.sendRemedy);
+  router.post("/api/send-email", doctorController.sendEmail);
 
   router.post(
     "/api/patient-book-appointment",
@@ -80,11 +83,19 @@ let initWebRoutes = (app) => {
   );
 
   router.post("/api/create-new-specialty", specialtyController.createSpecialty);
+  router.put("/api/edit-specialty", specialtyController.editSpecialty);
+  router.delete("/api/delete-specialty", specialtyController.deleteSpecialty);
   router.get("/api/get-specialty", specialtyController.getAllSpecialty);
   router.get(
     "/api/get-detail-specialty-by-id",
     specialtyController.getDetailSpecialtyById
   );
+
+  router.post("/api/create-new-blog", BlogController.createBlog);
+  router.put("/api/edit-blog", BlogController.editBlog);
+  router.delete("/api/delete-blog", BlogController.deleteBlog);
+  router.get("/api/get-blog", BlogController.getAllBlog);
+  router.get("/api/get-detail-blog-by-id", BlogController.getDetailBlogById);
   return app.use("/", router);
 };
 

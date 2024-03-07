@@ -10,6 +10,9 @@ export const path = {
   DETAIL_DOCTOR: "/detail-doctor/:id",
   DETAIL_SPECIALTY: "/detail-specialty/:id",
   DETAIL_CLINIC: "/detail-clinic/:id",
+  DETAIL_CLINIC_MORE: "/detail-clinic-more",
+
+  DETAIL_BLOG: "/detail-blog/:id",
   VERIFY_EMAIL_BOOKING: "/verify-booking",
 };
 

@@ -79,7 +79,6 @@ class OutStandingDoctor extends Component {
                           <div className="bg-image-text">
                             {language === LANGUAGES.VI ? nameVi : nameEn}
                           </div>
-                          <div className="bg-image-text">Răng Hàm Mặt</div>
                         </div>
                       </div>
                     </div>

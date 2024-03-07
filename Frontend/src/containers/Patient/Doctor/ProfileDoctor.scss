@@ -1,67 +1,108 @@
 .profile-doctor-container {
-    .intro-doctor {
+
+  flex-direction: column;
+  gap: 20px; /* Add some spacing between elements */
+
+  .intro-doctor {
+    display: block;
+    align-items: center;
+    gap: 20px;
+
+    .content-left {
+      width: 150px; /* Adjust the width of the image */
+      height: 150px; /* Adjust the height of the image */
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+    }
+
+    .content-right {
+      flex: 1;
       display: flex;
-  
-      .content-left {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: center center no-repeat;
-        width: 200px;
-        background-repeat: no-repeat;
-        background-size: contain, cover;
-        overflow: hidden;
-  
-        img {
-          width: 80px;
-          height: 80px;
-          object-fit: cover;
-        }
-      }
-  
-      .content-right {
-        width: calc(100% - 220px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 20px;
+      flex-direction: column;
+
+      .up {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 10px;
+        margin-bottom: 10px;
         line-height: normal;
-  
-        .up {
-          font-size: medium;
-          font-weight: 600;
-          margin-bottom: 10px;
-        }
-  
-        .down {
-          font-size: normal;
-          color: #666;
-        }
+      }
+
+      .down {
+        font-size: 16px;
+        color: #666;
       }
     }
-  
+  }
+
+  .profile-doctor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    .View-detail-doctor {
+      text-align: end;
+      a {
+        
+        text-decoration: none;
+        color: #007bff;
+        font-size: normal;
+      }
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+
+      .currency {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .intro-doctor {
+      .content-left {
+        width: 100px; /* Adjust image size for smaller screens */
+        height: 100px; /* Adjust image size for smaller screens */
+      }
+    }
+
     .profile-doctor {
-        display: flex;
-        justify-content: center; /* Align items at the start and end of the container */
-        align-items: end;
-    
-        .View-detail-doctor {
-          a {
-            text-decoration: none;
-            color: blue;
-    
-            &:hover {
-              text-decoration: underline;
-            }
-          }
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .intro-doctor {
+      flex-direction: column;
+      gap: 10px;
+
+      .content-left {
+        width: 80px; /* Adjust image size for smaller screens */
+        height: 80px; /* Adjust image size for smaller screens */
+      }
+
+      .content-right {
+        .up {
+          font-size: 20px; /* Adjust font size for smaller screens */
         }
-    
-        .price {
-          font-size: 16px;
-    
-          .currency {
-            margin-left: 5px;
-          }
+
+        .down {
+          font-size: 14px; /* Adjust font size for smaller screens */
         }
       }
     }
+
+    .profile-doctor {
+      .View-detail-doctor {
+        margin-top: 10px; /* Add some space between elements */
+      }
+    }
+  }
+}

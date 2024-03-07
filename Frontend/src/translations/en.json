@@ -10,7 +10,7 @@
         "fee": "Examination Package",
         "check-health": "General Health Checkup",
         "support": "Support",
-        "welcome":"Welcome, "
+        "welcome":"Welcome "
     },
     "banner": {
         "title1": "SCHEDULE DENTAL APPOINTMENT",
@@ -47,6 +47,8 @@
             "crud-redux": "CRUD Redux",
             "clinic": "Clinic",
             "manage-clinic": "Clinic Management",
+            "blog": "Guidebook",
+            "manage-blog": "Manage Guidebook",
             "specialist": "Specialist",
             "manage-specialist": "Specialist Management",
             "handbook": "Handbook",
@@ -99,9 +101,16 @@
             "payment": "Patients can pay fees by the following methods:",
             "hide-price": "Hide price list"
         },
+        "about":{
+            "about-title":"Media talk about Booking Dental",
+            "address": "Address: ",
+            "phone": "Phone number: ",
+            "email": "Email: "}
+            ,
         "booking-modal": {
             "title": "Booking Information",
             "fullname": "Full Name",
+            "email":"Email Address",
             "phonenumber": "Phone Number",
             "address": "Address",
             "reason": "Reason for Appointment",
@@ -110,9 +119,33 @@
             "btnConfirm": "Confirm",
             "btnCancle": "Cancel",
             "price-booking":"Free booking"
-        }
+        },
+        "slider-about":{
+            "title-1":"We are providing treatment by some experienced physicians",
+            "title-2": "Booking Dental Clinic - Your premier choice for dental health!",
+            "title-3": "We have experienced doctors.",
+            "title-4": "Best medical service is our main goal.",
+            "title-5": "We have customer support center.",
+            "title-6": "Provide world class treatment.",
+            "title-7": "We have the modern labs.",
+            "title-8": "Prominent Healthcare Facility",
+          
+            "title-9": "See More",
+           
+"title-10": "Guidebook",
+  "title-12": "Join our newsletter",
+            "title-11": "Get our monthly recap with the latest news, articles resources"
 
     },
+    
+"testimonial":{
+    "title-1":"Testimonial",
+    "title-2": "See what people say about us",
+    "title-3": "I am very satisfied with the service at this dental clinic. The team of doctors is very attentive and understanding, making me feel comfortable and confident about my dental health.",
+    "title-4": "I am very satisfied with the service at this dental clinic. The team of doctors is very attentive and understanding, making me feel comfortable and confident about my dental health.",
+    "title-5": "I am very satisfied with the service at this dental clinic. The team of doctors is very attentive and understanding, making me feel comfortable and confident about my dental health."
+    }
+},
     
 "footer":{
     "title1":"We are a leading dental clinic, committed to providing high-quality and reliable dental care services. With experienced and friendly dental team, we aim to bring bright smiles and good oral health to each patient.",
@@ -136,9 +169,22 @@
     "addressClinic": "Clinic Address",
     "note": "Note",
     "specialty":"Specialty",
-    "select-clinic": "Clinic"
+    "select-clinic": "Clinic",
+    "manage-clinic": "Manage Clinic",
+  "name-clinic": "Clinic Name",
+  "address-clinic": "Clinic Address",
+  "save-clinic": "Save",
+  "create-clinic": "Create",
+  "delete-clinic": "Delete",
+  
+"manage-blog": "Manage Guidebook",
+"name-blog": "Guidebook Name",
+"select-blog": "Select Guidebook",
+"manage-specialty": "Manage Specialty",
+"name-specialty": "Specialty Name",
+"select-specialty": "Select Specialty"
     }
 }
       
    
-}
+    }

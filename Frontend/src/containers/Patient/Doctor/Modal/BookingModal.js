@@ -262,7 +262,9 @@ class BookingModal extends Component {
                 />
               </div>
               <div className="col-md-6 form-group">
-                <label>Dia chi Email</label>
+                <label>
+                  <FormattedMessage id="patient.booking-modal.email" />
+                </label>
                 <input
                   className="form-control"
                   value={this.state.email}

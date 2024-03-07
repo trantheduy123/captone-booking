@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./DetailClinic.scss";
+import "./DetailBlog.scss";
 import * as actions from "../../../store/actions";
 import HomeHeader from "../../HomePage/HomeHeader";
 import Footer from "../../Footer/footer";
@@ -8,19 +8,17 @@ import DoctorSchedule from "../Doctor/DoctorSchedule";
 import DoctorExtraInfor from "../Doctor/DoctorExtraInfor";
 import ProfileDoctor from "../Doctor/ProfileDoctor";
 import {
-  getAllDetailClinicById,
+  getAllDetailBlogById,
   getAllCodeService,
 } from "../../../services/userService";
 import _ from "lodash";
 import { LANGUAGES } from "../../../utils";
-import FormEmail from "../../HomePage/Section/FormEmail";
-import Customer from "../../HomePage/Section/Customer";
-class DetailClinic extends Component {
+class DetailBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
       arrDoctorId: [],
-      dataDetailClinic: {},
+      dataDetailBlog: {},
     };
   }
 
@@ -28,7 +26,7 @@ class DetailClinic extends Component {
     if (this.props.match && this.props.match && this.props.match.params.id) {
       let id = this.props.match.params.id;
 
-      let res = await getAllDetailClinicById({
+      let res = await getAllDetailBlogById({
         id: id,
       });
 
@@ -45,7 +43,7 @@ class DetailClinic extends Component {
         }
 
         this.setState({
-          dataDetailClinic: res.data,
+          dataDetailBlog: res.data,
           arrDoctorId: arrDoctorId,
         });
         console.log("duy check state dataDetailSpecialty", res.data);
@@ -61,7 +59,7 @@ class DetailClinic extends Component {
   }
 
   render() {
-    let { arrDoctorId, dataDetailClinic } = this.state;
+    let { arrDoctorId, dataDetailBlog } = this.state;
     let language = this.props;
 
     return (
@@ -69,17 +67,13 @@ class DetailClinic extends Component {
         <HomeHeader />
         <div className="detail-specialty-body">
           <div className="description-specialty">
-            {dataDetailClinic && !_.isEmpty(dataDetailClinic) && (
+            {dataDetailBlog && !_.isEmpty(dataDetailBlog) && (
               <>
-                <div className="clinic-name">{dataDetailClinic.name}</div>
-                <div className="clinic-address">
-                  {" "}
-                  {dataDetailClinic.address}
-                </div>
+                <div>{dataDetailBlog.name}</div>
+                <div> {dataDetailBlog.address}</div>
                 <div
-                  className="clinic-p"
                   dangerouslySetInnerHTML={{
-                    __html: dataDetailClinic.descriptionHTML,
+                    __html: dataDetailBlog.descriptionHTML,
                   }}
                 ></div>
               </>
@@ -90,8 +84,8 @@ class DetailClinic extends Component {
             arrDoctorId.length > 0 &&
             arrDoctorId.map((item, index) => {
               return (
-                <div className="each-doctor " key={index}>
-                  <div className="dt-content-left ">
+                <div className="each-doctor" key={index}>
+                  <div className="dt-content-left">
                     <div className="doctor-infor">
                       <ProfileDoctor
                         doctorId={item}
@@ -102,7 +96,8 @@ class DetailClinic extends Component {
                       />
                     </div>
                   </div>
-                  <div className="dt-content-right ">
+                  <div className="dt-content-right">
+                    {" "}
                     <div className="doctor-schedule">
                       <DoctorSchedule doctorIdFromParent={item} />
                     </div>
@@ -114,8 +109,7 @@ class DetailClinic extends Component {
               );
             })}
         </div>
-        <FormEmail />
-        <Customer />
+
         <Footer />
       </div>
     );
@@ -136,4 +130,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailClinic);
+export default connect(mapStateToProps, mapDispatchToProps)(DetailBlog);

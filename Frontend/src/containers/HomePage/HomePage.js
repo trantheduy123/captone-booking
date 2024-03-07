@@ -9,8 +9,10 @@ import "slick-carousel/slick/slick-theme.css";
 import OutStandingDoctor from "./Section/OutStandingDoctor";
 import HandBook from "./Section/HandBook";
 import About from "./Section/About";
-
+import Customer from "./Section/Customer";
+import FormEmail from "./Section/FormEmail";
 import Footer from "../Footer/footer";
+import SliderAbout from "./Section/SliderAbout";
 class HomePage extends Component {
   render() {
     let settings = {
@@ -32,9 +34,9 @@ class HomePage extends Component {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1,
           },
         },
       ],
@@ -43,10 +45,14 @@ class HomePage extends Component {
       <div>
         <HomeHeader isShowBanner={true} />
         <Specialty settings={settings} />
-        <MedicalFacility settings={settings} />
+        <SliderAbout />
         <OutStandingDoctor settings={settings} />
-        <HandBook settings={settings} />
+        <MedicalFacility settings={settings} />
         <About />
+        <FormEmail />
+        <HandBook settings={settings} />
+
+        <Customer />
 
         <Footer />
       </div>
