@@ -8,11 +8,14 @@ export const path = {
   RESETPASSWORD: "/resetpassword/:token",
   SYSTEM: "/system",
   DETAIL_DOCTOR: "/detail-doctor/:id",
+  DETAIL_DOCTOR_MORE: "/detail-doctor-more",
+
   DETAIL_SPECIALTY: "/detail-specialty/:id",
   DETAIL_CLINIC: "/detail-clinic/:id",
   DETAIL_CLINIC_MORE: "/detail-clinic-more",
 
   DETAIL_BLOG: "/detail-blog/:id",
+  DETAIL_BLOG_MORE: "/detail-blog-more",
   VERIFY_EMAIL_BOOKING: "/verify-booking",
 };
 

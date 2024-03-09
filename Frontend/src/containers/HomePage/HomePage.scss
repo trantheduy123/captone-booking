@@ -2,12 +2,13 @@
 
 
 .section-share, .section-specialty {
-    background: #ededed;
+    background: #e8f2f5;
     &.section-medical-facility{
         background: white;
     }
     &.section-outstanding-doctor{
-        background: #ededed;
+        background: #e8f2f5;
+        height: 350px;
     }
     &.section-handbook{
         background: white !important;

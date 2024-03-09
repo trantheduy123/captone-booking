@@ -12,12 +12,14 @@ import {
   getAllCodeService,
 } from "../../../services/userService";
 import _ from "lodash";
-import { LANGUAGES } from "../../../utils";
+import FormEmail from "../../HomePage/Section/FormEmail";
+import Customer from "../../HomePage/Section/Customer";
+
 class DetailBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      arrDoctorId: [],
+      arrBlogId: [],
       dataDetailBlog: {},
     };
   }
@@ -32,19 +34,19 @@ class DetailBlog extends Component {
 
       if (res && res.errCode === 0) {
         let data = res.data;
-        let arrDoctorId = [];
+        let arrBlogId = [];
         if (data && !_.isEmpty(res.data)) {
           let arr = data.doctorClinic;
           if (arr && arr.length > 0) {
             arr.map((item) => {
-              arrDoctorId.push(item.doctorId);
+              arrBlogId.push(item.doctorId);
             });
           }
         }
 
         this.setState({
           dataDetailBlog: res.data,
-          arrDoctorId: arrDoctorId,
+          arrBlogId: arrBlogId,
         });
         console.log("duy check state dataDetailSpecialty", res.data);
       }
@@ -59,7 +61,7 @@ class DetailBlog extends Component {
   }
 
   render() {
-    let { arrDoctorId, dataDetailBlog } = this.state;
+    let { arrBlogId, dataDetailBlog } = this.state;
     let language = this.props;
 
     return (
@@ -69,8 +71,9 @@ class DetailBlog extends Component {
           <div className="description-specialty">
             {dataDetailBlog && !_.isEmpty(dataDetailBlog) && (
               <>
-                <div>{dataDetailBlog.name}</div>
+                <div className="clinic-name">{dataDetailBlog.name}</div>
                 <div> {dataDetailBlog.address}</div>
+
                 <div
                   dangerouslySetInnerHTML={{
                     __html: dataDetailBlog.descriptionHTML,
@@ -80,9 +83,9 @@ class DetailBlog extends Component {
             )}
           </div>
 
-          {arrDoctorId &&
-            arrDoctorId.length > 0 &&
-            arrDoctorId.map((item, index) => {
+          {arrBlogId &&
+            arrBlogId.length > 0 &&
+            arrBlogId.map((item, index) => {
               return (
                 <div className="each-doctor" key={index}>
                   <div className="dt-content-left">
@@ -109,7 +112,8 @@ class DetailBlog extends Component {
               );
             })}
         </div>
-
+        <FormEmail />
+        <Customer />
         <Footer />
       </div>
     );

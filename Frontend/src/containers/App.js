@@ -32,6 +32,8 @@ import VerifyEmail from "./Patient/VerifyEmail";
 import DetailSpecialty from "./Patient/Specialty/DetailSpecialty";
 import DetailClinic from "./Patient/Clinic/DetailClinic";
 import MoreDetailClinic from "./Patient/Clinic/MoreDetailClinic";
+import MoreBlogClinic from "./Patient/Blog/MoreBlogClinic";
+import MoreDoctor from "./Patient/Doctor/MoreDoctor";
 import DetailBlog from "./Patient/Blog/DetailBlog";
 
 class App extends Component {
@@ -90,6 +92,10 @@ class App extends Component {
                   />
                   <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
                   <Route
+                    path={path.DETAIL_DOCTOR_MORE}
+                    component={MoreDoctor}
+                  />
+                  <Route
                     path={path.DETAIL_SPECIALTY}
                     component={DetailSpecialty}
                   />
@@ -97,6 +103,11 @@ class App extends Component {
                   <Route
                     path={path.DETAIL_CLINIC_MORE}
                     component={MoreDetailClinic}
+                  />
+
+                  <Route
+                    path={path.DETAIL_BLOG_MORE}
+                    component={MoreBlogClinic}
                   />
                   <Route path={path.DETAIL_BLOG} component={DetailBlog} />
                   <Route

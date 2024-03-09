@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./MoreDeltailClinic.scss";
+import "./MoreBlogClinic.scss";
 import * as actions from "../../../store/actions";
 import HomeHeader from "../../HomePage/HomeHeader";
 import Footer from "../../Footer/footer";
@@ -8,9 +8,8 @@ import DoctorSchedule from "../Doctor/DoctorSchedule";
 import DoctorExtraInfor from "../Doctor/DoctorExtraInfor";
 import ProfileDoctor from "../Doctor/ProfileDoctor";
 import {
-  getAllDetailClinicById,
-  getAllCodeService,
-  getAllClinic,
+  getAllBlog,
+  getAllDetailBlogById,
 } from "../../../services/userService";
 import _ from "lodash";
 import { LANGUAGES } from "../../../utils";
@@ -21,27 +20,28 @@ import OutStandingDoctor from "../../HomePage/Section/OutStandingDoctor";
 import MedicalFacility from "../../HomePage/Section/MedicalFacility";
 import FormEmail from "../../HomePage/Section/FormEmail";
 import Customer from "../../HomePage/Section/Customer";
+import HandBook from "../../HomePage/Section/HandBook";
 
-class MoreDetailClinic extends Component {
+class MoreBlogClinic extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataMoreDetailClinic: {},
-      listClinic: [],
-      selectClinic: "",
+      dataMoreBlogClinic: {},
+      listBlog: [],
+      selectBlog: "",
     };
   }
 
   async componentDidMount() {
-    this.props.fetchAllClinics();
+    this.props.fetchAllBlogs();
     /*  this.props.getRequiredDoctorInfor(); */
     try {
-      const res = await getAllClinic();
+      const res = await getAllBlog();
       if (res && res.errCode === 0) {
         const { data } = res;
         let arrDoctorId = [];
         if (data && !_.isEmpty(data)) {
-          let arr = data.inputId;
+          let arr = data.doctorClinic;
           if (arr && arr.length > 0) {
             arr.map((item) => {
               arrDoctorId.push(item.doctorId);
@@ -49,7 +49,7 @@ class MoreDetailClinic extends Component {
           }
         }
         this.setState({
-          dataMoreDetailClinic: data,
+          dataMoreBlogClinic: data,
           arrDoctorId: arrDoctorId,
         });
       }
@@ -79,23 +79,23 @@ class MoreDetailClinic extends Component {
     return result;
   };
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.allClinics !== this.props.allClinics) {
-      let dataSelect = this.buildDataInputSelect(this.props.allClinics);
+    if (prevProps.allBlogs !== this.props.allBlogs) {
+      let dataSelect = this.buildDataInputSelect(this.props.allBlogs);
       this.setState({
-        listClinic: dataSelect,
+        listBlog: dataSelect,
       });
     }
   }
 
-  handleChange = (selectClinic) => {
-    this.setState({ selectClinic }, () =>
-      console.log(`Option selected:`, this.state.doctorId)
+  handleChange = (selectBlog) => {
+    this.setState({ selectBlog }, () =>
+      console.log(`Option selected:`, this.state.blog)
     );
-    this.props.history.push(`/detail-clinic/${selectClinic.value}`);
+    this.props.history.push(`/detail-blog/${selectBlog.value}`);
   };
 
   render() {
-    let { arrDoctorId, dataMoreDetailClinic } = this.state;
+    let { arrDoctorId, dataMoreBlogClinic } = this.state;
     let language = this.props;
 
     let settings = {
@@ -133,49 +133,49 @@ class MoreDetailClinic extends Component {
             <div class="nm2-text-component nm2-margin-bottom-md">
               <h3>
                 {" "}
-                <FormattedMessage id="patient.slider-about.title-8" />
+                <FormattedMessage id="patient.slider-about.title-10" />
               </h3>
               <p>
                 <FormattedMessage id="patient.slider-about.title-2" />
               </p>
             </div>
-            <MedicalFacility settings={settings} />
+            <HandBook settings={settings} />
             <div className="search">
               <i className="fas fa-search"></i>
 
               <Select
                 className="search-doctor"
-                value={this.state.selectClinic}
+                value={this.state.selectBlog}
                 onChange={this.handleChange}
-                options={this.state.listClinic}
+                options={this.state.listBlog}
                 placeholder={
-                  <FormattedMessage id="admin.manage-doctor.select-clinic" />
+                  <FormattedMessage id="admin.manage-doctor.select-blog" />
                 }
               />
             </div>
           </div>
 
           <div className="detail-specialty-body">
-            {dataMoreDetailClinic && dataMoreDetailClinic.length > 0 ? (
-              dataMoreDetailClinic.map((clinic, index) => (
+            {dataMoreBlogClinic && dataMoreBlogClinic.length > 0 ? (
+              dataMoreBlogClinic.map((blog, index) => (
                 <div className="description-specialty" key={index}>
-                  <div className="clinic-name">{clinic.name}</div>
-                  <div className="clinic-address">{clinic.address}</div>
+                  <div className="blog-name">{blog.name}</div>
+                  <div className="blog-address">{blog.address}</div>
 
-                  {clinic.image && (
+                  {blog.image && (
                     <img
-                      className="clinic-img"
-                      src={clinic.image}
-                      alt={clinic.name}
+                      className="blog-img"
+                      src={blog.image}
+                      alt={blog.name}
                     />
                   )}
                   <Link
-                    className="link-to-dentail-clinic"
-                    to={`/detail-clinic/${clinic.id}`}
+                    className="link-to-dentail-blog"
+                    to={`/detail-blog/${blog.id}`}
                   >
                     <FormattedMessage id="homepage.more-info" />
                   </Link>
-                  {/* Render doctor details for each clinic */}
+                  {/* Render doctor details for each blog */}
                   {arrDoctorId &&
                     arrDoctorId.length > 0 &&
                     arrDoctorId.map((item, index) => (
@@ -220,17 +220,17 @@ const mapStateToProps = (state) => {
     listUser: state.admin.users,
     language: state.app.language,
     allRequiredDoctorInfor: state.admin.allRequiredDoctorInfor,
-    allClinics: state.admin.allClinics,
+    allBlogs: state.admin.allBlogs,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllClinics: () => dispatch(actions.fetchAllClinics()),
+    fetchAllBlogs: () => dispatch(actions.fetchAllBlogs()),
     fetchUserRedux: () => dispatch(actions.fetchAllUserStart()),
     deleteAllUserRedux: (id) => dispatch(actions.deleteAllUser(id)),
     getRequiredDoctorInfor: () => dispatch(actions.getRequiredDoctorInfor()),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoreDetailClinic);
+export default connect(mapStateToProps, mapDispatchToProps)(MoreBlogClinic);

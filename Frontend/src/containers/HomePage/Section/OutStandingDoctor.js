@@ -31,6 +31,12 @@ class OutStandingDoctor extends Component {
     console.log("tran the duy view infor", doctor);
   };
 
+  handleViewDetailDoctorMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-doctor-more");
+    }
+  };
+
   render() {
     let arrDoctor = this.state.arrDoctor;
     let { language } = this.props;
@@ -42,8 +48,11 @@ class OutStandingDoctor extends Component {
             <span className="title-section">
               <FormattedMessage id="homepage.outstanding-doctor" />
             </span>
-            <button className="btn-section">
-              <FormattedMessage id="homepage.more-info" />
+            <button
+              className="btn-section"
+              onClick={this.handleViewDetailDoctorMore}
+            >
+              <FormattedMessage id="patient.slider-about.title-9" />
             </button>
           </div>
           <div className="section-body">
