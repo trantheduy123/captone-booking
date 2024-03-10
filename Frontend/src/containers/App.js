@@ -34,6 +34,7 @@ import DetailClinic from "./Patient/Clinic/DetailClinic";
 import MoreDetailClinic from "./Patient/Clinic/MoreDetailClinic";
 import MoreBlogClinic from "./Patient/Blog/MoreBlogClinic";
 import MoreDoctor from "./Patient/Doctor/MoreDoctor";
+import MoreSpecialty from "./Patient/Specialty/MoreSpecialty";
 import DetailBlog from "./Patient/Blog/DetailBlog";
 
 class App extends Component {
@@ -104,10 +105,14 @@ class App extends Component {
                     path={path.DETAIL_CLINIC_MORE}
                     component={MoreDetailClinic}
                   />
-
+                  MoreSpecialty
                   <Route
                     path={path.DETAIL_BLOG_MORE}
                     component={MoreBlogClinic}
+                  />
+                  <Route
+                    path={path.DETAIL_SPECIALTY_MORE}
+                    component={MoreSpecialty}
                   />
                   <Route path={path.DETAIL_BLOG} component={DetailBlog} />
                   <Route
