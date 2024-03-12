@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x,14.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -36,5 +36,6 @@ jobs:
           ls -al /home/runner/.npm
           npm cache clean -f
           npm install
+          npm rebuild node-sass  # Rebuild node-sass to fix potential build issues
           npm start &
           # Add any client-specific build and test commands here
