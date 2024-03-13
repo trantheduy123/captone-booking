@@ -7,8 +7,8 @@
         "select-room": "Select Hospital or Clinic",
         "doctor": "Doctor",
         "select-doctor": "Choose a Skilled Doctor",
-        "fee": "Examination Package",
-        "check-health": "General Health Checkup",
+        "fee": "Guidebook",
+        "check-health": "Overview Guidebook",
         "support": "Support",
         "welcome":"Welcome "
     },

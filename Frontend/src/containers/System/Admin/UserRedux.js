@@ -38,6 +38,7 @@ class UserRedux extends Component {
     this.props.getGenderStart();
     this.props.getPositionStart();
     this.props.getRoleStart();
+    this.props.getGenderStart();
     try {
       let res = await getAllCodeService("gender");
       if (res && res.errCode === 0)

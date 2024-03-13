@@ -99,6 +99,28 @@ class HomeHeader extends Component {
       this.props.history.push("/home");
     }
   };
+  handleViewDetailSpecialtyMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-specialty-more");
+    }
+  };
+
+  handleViewDetailDoctorMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-doctor-more");
+    }
+  };
+  handleViewDetailClinicMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-clinic-more");
+    }
+  };
+
+  handleViewDetailBlogMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-blog-more");
+    }
+  };
 
   render() {
     let language = this.props.language;
@@ -111,7 +133,10 @@ class HomeHeader extends Component {
               <div className="header-logo" onClick={this.returnToHome}></div>
             </div>
             <div className="center-content">
-              <div className="child-content">
+              <div
+                className="child-content"
+                onClick={this.handleViewDetailSpecialtyMore}
+              >
                 <div>
                   <b>
                     <FormattedMessage id="homeheader.DentalSpecialist" />
@@ -121,7 +146,10 @@ class HomeHeader extends Component {
                   <FormattedMessage id="homeheader.SearchDoctor" />
                 </div>
               </div>
-              <div className="child-content">
+              <div
+                className="child-content"
+                onClick={this.handleViewDetailClinicMore}
+              >
                 <div>
                   <b>
                     <FormattedMessage id="homeheader.health-facility" />
@@ -131,7 +159,10 @@ class HomeHeader extends Component {
                   <FormattedMessage id="homeheader.select-room" />
                 </div>
               </div>
-              <div className="child-content">
+              <div
+                className="child-content"
+                onClick={this.handleViewDetailDoctorMore}
+              >
                 <div>
                   <b>
                     <FormattedMessage id="homeheader.doctor" />
@@ -141,7 +172,11 @@ class HomeHeader extends Component {
                   <FormattedMessage id="homeheader.select-doctor" />
                 </div>
               </div>
-              <div className="child-content">
+
+              <div
+                className="child-content"
+                onClick={this.handleViewDetailBlogMore}
+              >
                 <div>
                   <b>
                     <FormattedMessage id="homeheader.fee" />

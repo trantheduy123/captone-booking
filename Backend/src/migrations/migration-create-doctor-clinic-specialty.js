@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("doctor_clinic_specialty", {
+    await queryInterface.createTable("Doctor_Clinic_Specialty", {
       // currentNumber: DataTypes.INTEGER,
       // maxNumber: DataTypes.INTEGER,
       // date: DataTypes.DATE,
@@ -35,6 +35,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("doctor_clinic_specialty");
+    await queryInterface.dropTable("Doctor_Clinic_Specialty");
   },
 };

@@ -3,13 +3,35 @@ import { FormattedMessage } from "react-intl";
 
 import { connect } from "react-redux";
 import "./footer.css";
-
+import { withRouter } from "react-router";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./footer.css";
 
 class Footer extends Component {
+  handleViewDetailSpecialtyMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-specialty-more");
+    }
+  };
+
+  handleViewDetailDoctorMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-doctor-more");
+    }
+  };
+  handleViewDetailClinicMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-clinic-more");
+    }
+  };
+
+  handleViewDetailBlogMore = () => {
+    if (this.props.history) {
+      this.props.history.push("/detail-blog-more");
+    }
+  };
   render() {
     return (
       <>
@@ -32,25 +54,25 @@ class Footer extends Component {
                   <h2>
                     <FormattedMessage id="footer.info" />
                   </h2>
-                  <li>
-                    <a ui-sref="about" href="#/">
+                  <li onClick={this.handleViewDetailSpecialtyMore}>
+                    <div ui-sref="about" href="#/">
                       <FormattedMessage id="homeheader.DentalSpecialist" />
-                    </a>
+                    </div>
                     <i className="fa fa-angle-right"></i>
                   </li>
-                  <li>
+                  <li onClick={this.handleViewDetailClinicMore}>
                     <a ui-sref="portfolio" href="#/">
                       <FormattedMessage id="homeheader.health-facility" />
                     </a>
                     <i className="fa fa-angle-right"></i>
                   </li>
-                  <li>
+                  <li onClick={this.handleViewDetailDoctorMore}>
                     <a ui-sref="products" href="#/">
                       <FormattedMessage id="homeheader.doctor" />
                     </a>
                     <i className="fa fa-angle-right"></i>
                   </li>
-                  <li>
+                  <li onClick={this.handleViewDetailBlogMore}>
                     <a ui-sref="gallery" href="#/">
                       <FormattedMessage id="homeheader.fee" />
                     </a>
@@ -122,4 +144,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer));
