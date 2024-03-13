@@ -1,0 +1,93 @@
+.booking-modal-container {
+    .modal-content {
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  
+      @media (max-width: 768px) {
+        max-width: 90%;
+      }
+    }
+  
+    .modal-header {
+      background-color: #007bff;
+      color: #ffffff;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 15px 20px;
+      text-align: center;
+  
+      .modal-title {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+  
+      .close {
+        color: #ffffff;
+        font-size: 1.5rem;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  
+    .modal-body {
+      padding: 20px;
+  
+      .form-group {
+        margin-bottom: 20px;
+  
+        label {
+          font-weight: bold;
+        }
+  
+        input[type='email']{
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          transition: border-color 0.3s ease;
+  
+          &:focus {
+            border-color: #007bff;
+          }
+        }
+  
+       
+      }
+    }
+  
+    .modal-footer {
+      border-top: none;
+      padding: 15px 20px;
+      text-align: center;
+  
+      button {
+        margin-right: 10px;
+        min-width: 100px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+  
+      button:first-child {
+        background-color: #007bff;
+        color: #ffffff;
+      }
+  
+      button:last-child {
+        background-color: #6c757d;
+        color: #ffffff;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .modal-body {
+        padding: 10px;
+      }
+    }
+  }
+  

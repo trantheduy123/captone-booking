@@ -1,0 +1,124 @@
+.footer {
+    padding: 50px;
+    background-color: #3498db;
+    color: #FFF;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 940px) {
+    .footer {
+      padding: 50px 10px;
+    }
+  }
+  .footer h2 {
+    font-size: 22px;
+    margin-top: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .footer p {
+    text-align: justify;
+    text-indent: 20px;
+    font-size: 0.9rem;
+    line-height: normal;
+  }
+  
+  .footer .link-list li {
+    padding: 7px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #1b71ab;
+  }
+  
+  .footer .link-list li a {
+    color: #FFF;
+    text-decoration: none;
+  }
+  
+  .footer .link-list li i {
+    float: right;
+  }
+  
+  .footer .map-img {
+    font-weight: 600;
+    font-size: 17px;
+    padding-left: 20px;
+  }
+  
+  .address {
+    font-size: 0.95rem;
+    line-height: initial;
+    text-decoration: none;
+  }
+  .address a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .copy {
+    padding: 20px;
+    background-color: #1b71ab;
+    font-size: 0.85rem;
+    color: #FFF;
+    width: 100%;
+  }
+  
+  .copy a {
+    color: #FFF;
+    text-decoration: none;
+  }
+  
+  .copy span {
+    float: right;
+    color: white;
+  }
+
+  .copy span a{
+    float: right;
+    color: white;
+  }
+  
+  .copy span i {
+    margin-right: 20px;
+  }
+  
+  @media screen and (max-width: 777px) {
+    .copy span {
+      display: none;
+    }
+  }
+  .our-team {
+    padding: 50px;
+  }
+  @media screen and (max-width: 940px) {
+    .our-team {
+      padding: 30px 10px;
+    }
+  }
+  .our-team .team-row .single-usr {
+    background-color: #FFF;
+    box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 2px 6px 0 rgba(206, 206, 238, 0.54);
+    border-radius: 5px;
+  }
+  @media screen and (max-width: 767px) {
+    .our-team .team-row .single-usr {
+      margin-bottom: 30px;
+    }
+  }
+  .our-team .team-row .single-usr .det-o {
+    text-align: center;
+    padding: 10px;
+  }
+  .our-team .team-row .single-usr .det-o h4 {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+  .our-team .team-row .single-usr .det-o i {
+    font-size: 0.85rem;
+  }
+  
+  /*# sourceMappingURL=style.css.map */
+  

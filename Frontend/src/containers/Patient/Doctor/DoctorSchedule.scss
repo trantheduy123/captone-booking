@@ -1,0 +1,90 @@
+.doctor-schedule-container {
+    height: 100%;
+
+    .all-schedule {
+        select {
+            border: 2px solid #45c3d2;
+            border-radius: 8px;
+            padding: 12px 20px;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s, box-shadow 0.3s;
+
+            &:focus {
+                border-color: #45c3d2;
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(69, 195, 210, 0.2);
+            }
+
+            option {
+                color: #333;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .all-available-time {
+        .text-calender {
+            margin: 20px 0;
+            color: #333;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+
+            span {
+                margin-left: 5px;
+            }
+        }
+
+        .time-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            line-height: normal;
+            .book-free{
+                margin-top: 10px;
+                font-size: small;
+                text-transform: lowercase;
+                font-weight: 100;
+                align-items: end;
+                font-style: italic;
+                margin-left: 25px;
+            }
+            
+            
+
+            button {
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                background-color: #45c3d2;
+                color: white;
+                font-size: 14px;
+                min-width: 120px;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+
+                &:hover {
+                    background-color: #2e96ad;
+                    transform: translateY(-2px);
+                }
+                
+            }
+
+            .btn-vie {
+                min-width: 150px;
+            }
+            .btn-en {
+                min-width: 180px;
+            }
+            .no-schedule{
+                font-style: italic;
+                font-size: small;
+                font-weight: 200;
+            }
+        }
+    }
+}

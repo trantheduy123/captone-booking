@@ -1,0 +1,109 @@
+.section-share {
+    &.section-specialty{
+        height: 430px;
+    background: #e8f2f5;
+    }
+
+    @media (min-width: 768px) {
+        .section-container {
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+    }
+
+    .section-container {
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            height: 60px;
+            margin-top: 20px;
+            padding-top: 20px;
+            margin-bottom: 20px;
+           
+            
+
+
+            .title-section {
+                font-size: 2rem;
+                font-weight: 600;
+                color: #333;
+                @media (min-width: 768px) {
+                    font-size: 1.5rem;
+                    
+                
+                    }
+                
+            }
+
+            .btn-section {
+                background-color: #3498db;
+                color: #fff;
+                border: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+                outline: none;
+                float: right;
+                display: block;
+                text-transform: uppercase;
+
+                &:hover {
+                    background-color: #2980b9;
+                }
+
+                @media (max-width: 768px) {
+                    float: none;
+                    margin-top: 10px;
+                    width: 100%; // Make the button full-width on smaller screens
+                    
+                }
+            }
+            @media (max-width: 768px) {
+               
+                text-align: center;
+                margin-bottom: 34px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+
+        .section-customize {
+            position: relative;
+            border-radius: 5px;
+        
+            &.section-specialty {
+                .bg-image {
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                    width: 90%;
+                    height: 250px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    transition: box-shadow 0.3s ease;
+                    // Specify the background image
+                    background: url('../../../assets/specialty/nieng-rang.jpg');
+        
+                    // Hover effect
+                    &:hover {
+                        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                        cursor: pointer;
+                    }
+                }
+            }
+        
+            .bg-image-text {
+                font-size: 1rem;
+                font-weight: 400;
+                color: #333;
+                text-align: left;
+                margin-top: 8px;
+            }
+        }
+    }
+   
+}

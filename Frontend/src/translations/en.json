@@ -1,0 +1,190 @@
+{
+
+    "homeheader": {
+        "DentalSpecialist": "Dental Specialist",
+        "SearchDoctor": "Find a Doctor by Specialty",
+        "health-facility": "Health Facility",
+        "select-room": "Select Hospital or Clinic",
+        "doctor": "Doctor",
+        "select-doctor": "Choose a Skilled Doctor",
+        "fee": "Guidebook",
+        "check-health": "Overview Guidebook",
+        "support": "Support",
+        "welcome":"Welcome "
+    },
+    "banner": {
+        "title1": "SCHEDULE DENTAL APPOINTMENT",
+        "title2": "COMPREHENSIVE ORAL HEALTH CARE",
+        "title3": "Find a Doctor for Medical Examination",
+        "child1": "Specialized Examination",
+        "child2": "Remote Consultation",
+        "child3": "Companion Doctor",
+        "child4": "Oral Health Checkup Quiz",
+        "child5": "Service Price List"
+    },
+
+  
+
+
+    "menu": {
+        "system": {
+            "header": "System",
+            "system-administrator": {
+                "header": "System Administrator",
+                "user-manage": "User manage",
+                "user-redux": "Manage user using redux",
+                "register-package-group-or-account": "Register service package for group/account"
+            },
+            "system-parameter": {
+                "header": "System-parameter"
+            }
+        },
+        "admin": {
+            "manage-user": "User Management",
+            "manage-doctor": "Doctor Management",
+            "manage-admin": "Admin Management",
+            "crud": "CRUD User",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Clinic",
+            "manage-clinic": "Clinic Management",
+            "blog": "Guidebook",
+            "manage-blog": "Manage Guidebook",
+            "specialist": "Specialist",
+            "manage-specialist": "Specialist Management",
+            "handbook": "Handbook",
+            "manage-handbook": "Handbook Management"
+        },
+        "doctor":{
+            "manage-schedule":"Manage Doctor's schedule",
+            "manage-patient":"Manage Doctor's Patient"
+        }
+
+    },
+    "manage-user":{
+        "add": "Add New User",
+        "email": "Email",
+        "password": "Password",
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "phone-number": "Phone Number",
+        "gender": "Gender",
+        "address": "Address",
+        "save": "Save",
+        "position": "Position",
+        "role": "Role",
+        "image": "Image",
+        "edit": "Edit user"
+      },
+      "homepage": {
+        "outstanding-doctor": "Outstanding Doctors of the Week",
+        "more-info": "See More",
+        "specialty-popular": "Popular Specialties"
+    },
+    "manage-schedule": {
+        "title": "Doctor Appointment Management",
+        "choose-doctor": "Choose Doctor",
+        "choose-date": "Choose Date",
+        "save": " Save Infor"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "The doctor does not have an appointment at this time, please choose another time!",
+            "choose": "choose ",
+            "book-free": " and book (free)",
+            "search-doctor": "Search doctors by specialty"
+        },
+        "extra-infor-doctor": {
+            "text-address": "Address for examination",
+            "price": "EXAMINATION FEE:",
+            "detail": "View details",
+            "payment": "Patients can pay fees by the following methods:",
+            "hide-price": "Hide price list"
+        },
+        "about":{
+            "about-title":"Media talk about Booking Dental",
+            "address": "Address: ",
+            "phone": "Phone number: ",
+            "email": "Email: "}
+            ,
+        "booking-modal": {
+            "title": "Booking Information",
+            "fullname": "Full Name",
+            "email":"Email Address",
+            "phonenumber": "Phone Number",
+            "address": "Address",
+            "reason": "Reason for Appointment",
+            "birthday": "Date of Birth",
+            "gender": "Gender",
+            "btnConfirm": "Confirm",
+            "btnCancle": "Cancel",
+            "price-booking":"Free booking"
+        },
+        "slider-about":{
+            "title-1":"We are providing treatment by some experienced physicians",
+            "title-2": "Booking Dental Clinic - Your premier choice for dental health!",
+            "title-3": "We have experienced doctors.",
+            "title-4": "Best medical service is our main goal.",
+            "title-5": "We have customer support center.",
+            "title-6": "Provide world class treatment.",
+            "title-7": "We have the modern labs.",
+            "title-8": "Prominent Healthcare Facility",
+          
+            "title-9": "See More",
+           
+"title-10": "Guidebook",
+  "title-12": "Join our newsletter",
+            "title-11": "Get our monthly recap with the latest news, articles resources"
+
+    },
+    
+"testimonial":{
+    "title-1":"Testimonial",
+    "title-2": "See what people say about us",
+    "title-3": "I am very satisfied with the service at this dental clinic. The team of doctors is very attentive and understanding, making me feel comfortable and confident about my dental health.",
+    "title-4": "I am very satisfied with the service at this dental clinic. The team of doctors is very attentive and understanding, making me feel comfortable and confident about my dental health.",
+    "title-5": "I am very satisfied with the service at this dental clinic. The team of doctors is very attentive and understanding, making me feel comfortable and confident about my dental health."
+    }
+},
+    
+"footer":{
+    "title1":"We are a leading dental clinic, committed to providing high-quality and reliable dental care services. With experienced and friendly dental team, we aim to bring bright smiles and good oral health to each patient.",
+    "title2":"We pride ourselves on applying the most advanced technology and modern treatment methods to ensure everyone has a comfortable and effective dental experience. Come to us to experience the most caring and professional service in maintaining and improving your oral health.",
+    "contact":"Contact US",
+    "about":"About US","info":"Information"
+    },
+
+    "admin": {
+    
+"manage-doctor": {
+    "title": "Add Doctor Information",
+    "select-doctor": "Select Doctor",
+    "intro": "Introduction Information",
+    "add": "Add Information",
+    "save": "Save Information",
+    "price": "Consultation Fee",
+    "payment": "Payment Method",
+    "province": "Province",
+    "nameClinic": "Clinic Name",
+    "addressClinic": "Clinic Address",
+    "note": "Note",
+    "specialty":"Specialty",
+    "select-clinic": "Clinic",
+    "manage-clinic": "Manage Clinic",
+  "name-clinic": "Clinic Name",
+  "address-clinic": "Clinic Address",
+  "save-clinic": "Save",
+  "create-clinic": "Create",
+  "delete-clinic": "Delete",
+  
+"manage-blog": "Manage Guidebook",
+"name-blog": "Guidebook Name",
+"select-blog": "Select Guidebook",
+"manage-specialty": "Manage Specialty",
+"name-specialty": "Specialty Name",
+"select-specialty": "Select Specialty"
+    }
+}
+      
+   
+    }

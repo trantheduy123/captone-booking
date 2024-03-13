@@ -1,0 +1,276 @@
+
+
+
+.section-share, .section-specialty {
+    background: #e8f2f5;
+    &.section-medical-facility{
+        background: white;
+    }
+    &.section-outstanding-doctor{
+        background: #e8f2f5;
+        height: 350px;
+    }
+    &.section-handbook{
+        background: white !important;
+    }
+    &.section-about{
+        height: 500px !important;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+    .section-body {
+      .section-customize {
+       
+
+            .bg-image {
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-color: #eee;
+              width: 90%;
+              height: 250px;
+              object-fit: cover;
+              border-radius: 5px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              transition: box-shadow 0.3s ease;
+      
+              // Specify the background image
+           
+                
+              &.section-specialty {
+                background-image: url('../../assets/specialty/nieng-rang.jpg');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee; 
+            }
+    
+            &.section-medical-facility {
+              //  background-image: url('../../assets/medical-facility/benh-vien-worldwide.jpg');
+                background-position: center center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+             background-color: #fff; 
+            }
+            &.section-outstanding-doctor {
+              //  background-image: url('../../assets/outstanding-doctor/logo-doctor.png');
+                background-position: center center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 width: 120px;
+                 height: 120px;
+                 border-radius: 50%;
+                background-color: #fff; 
+                transition: box-shadow 0.3s ease, transform 0.3s ease;
+            }
+            &.section-handbook {
+                background-image: url('../../assets/handbook/cam-nang-1.png');
+                background-position: center center;
+                 background-repeat: no-repeat;
+                 background-size: cover;
+             
+            }
+              // Hover effect
+              &:hover {
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                transform: scale(1.05);
+              }
+            }
+        
+  
+            .bg-image-text {
+                font-size: 1rem;
+                font-weight: 400;
+                color: #333;
+                text-align: left;
+                margin-top: 8px;
+                transition: color 0.3s ease; /* Smooth color transition on hover */
+              
+                &:hover {
+                  color: #3498db; /* Change color on hover to your desired color */
+                  cursor: pointer;
+                }
+              }
+      }
+    }
+  }
+  
+.section-share {
+    height: 430px;
+    
+
+    @media (min-width: 768px) {
+        .section-container {
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+    }
+
+    .section-container {
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            height: 60px;
+            margin-top: 20px;
+            padding-top: 20px;
+            margin-bottom: 20px;
+           
+            
+
+
+            .title-section {
+                font-size: 2rem;
+                font-weight: 700;
+                color: #333;
+                @media (min-width: 768px) {
+                    font-size: 1.5rem;
+                font-weight: 700;
+                
+                    }
+                
+            }
+
+            .btn-section {
+                background-color: #3498db;
+                color: #fff;
+                border: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+                outline: none;
+                float: right;
+                display: block;
+                text-transform: uppercase;
+
+                &:hover {
+                    background-color: #2980b9;
+                }
+
+                @media (max-width: 768px) {
+                    float: none;
+                    margin-top: 10px;
+                    width: 100%; // Make the button full-width on smaller screens
+                    
+                }
+            }
+            @media (max-width: 768px) {
+               
+                text-align: center;
+                margin-bottom: 34px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+
+      
+    }
+    .slick-prev,
+            .slick-next {
+                border: 2px solid #d7d7d7 !important;
+                z-index: 1000 !important;
+                height: 48px !important;
+                width: 44px !important;
+                background: #dddddd !important;
+
+                &:hover {
+                    background: #bebebe !important;
+                }
+
+                &.slick-prev {
+                    left: -12px !important;
+                }
+
+                &.slick-next {
+                    right: -12px !important;
+                }
+            }
+}
+
+
+
+.section-outstanding-doctor {
+    
+    align-items: center;  // Center vertically
+    justify-content: center;  // Center horizontally
+    .outer-bg{
+        display: flex;
+        justify-content: center;
+      
+    }
+    .section-customize{
+        padding: 5px;
+
+        .customize-boder{
+            border: 3px solid #3498db;
+            padding: 20px ;
+            border-radius: 15px;
+        }
+        .position {
+            text-align: center;
+            
+            .bg-image-text {
+              
+              font-weight: bold;
+              color: #333; // Set your desired text color
+              text-align: center;
+            }
+          }
+    }
+  
+}
+
+.home-footer{
+    text-align: center;
+
+}
+
+.section-share.section-about, .section-specialty.section-about {
+    height: 615px !important;
+}
+.section-about {
+    padding: 0 10px;
+  
+    .section-about-header {
+      padding: 20px 10px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  
+    .section-about-content {
+      display: flex;
+      flex-wrap: wrap;
+  
+      .content-right {
+        width: 100%;
+  
+        p {
+          text-align: justify;
+          font-size: medium;
+          padding: 15px;
+          margin-top: 0px;
+        }
+      }
+  
+      .content-left {
+        width: 100%;
+      }
+    }
+  
+    @media only screen and (min-width: 768px) {
+      
+      .section-about-content {
+        flex-wrap: nowrap;
+  
+        .content-right {
+          width: 65%;
+        }
+  
+        .content-left {
+          width: 35%;
+        }
+      }
+    }
+  }
